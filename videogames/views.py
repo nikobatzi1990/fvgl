@@ -7,11 +7,6 @@ from . serializers import GameSerializer
 
 @api_view(['GET'])
 def getData(request):
-  # new_game = {'title':'Legend of Zelda: Tears of the Kingdom', 
-  #             'release_year': 2023, 
-  #             'developer': 'Nintendo', 
-  #             'genre': 'adventure, open world'
-  #             }
   games = Game.objects.all()
   serializer = GameSerializer(games, many=True)
   return Response(serializer.data)

@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from . models import Game
@@ -7,7 +6,7 @@ from . serializers import GameSerializer
 
 @api_view(['GET'])
 def getData(request):
-  games = Game.objects.all()
+  games = Game.objects.all().order_by('id')
   serializer = GameSerializer(games, many=True)
   return Response(serializer.data)
 
@@ -17,3 +16,13 @@ def addGame(request):
     if serializer.is_valid():
        serializer.save()
     return Response(serializer.data)
+
+@api_view(['PATCH'])
+def editGame(request, pk):
+  game = Game.objects.get(pk=pk)
+  game.title = request.data.get('title', game.title)
+  game.release_year = request.data.get('release_year', game.release_year)
+  game.developer = request.data.get('developer', game.developer)
+  game.genre = request.data.get('genre', game.genre)
+  game.save()
+  return Response(game)

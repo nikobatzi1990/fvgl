@@ -26,3 +26,9 @@ def editGame(request, pk):
   game.genre = request.data.get('genre', game.genre)
   game.save()
   return Response(game)
+
+@api_view(['DELETE'])
+def deleteGame(request, pk): 
+   game = Game.objects.get(pk=pk)
+   game.delete()
+   return Response("Game Deleted")

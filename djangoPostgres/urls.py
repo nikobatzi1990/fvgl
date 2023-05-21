@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('games/', views.getData),
     path('submission/', views.addGame),
-    path('game/<int:pk>', views.editGame),
+    path('game/<int:pk>/', views.editGame),
+    path('deletion/<int:pk>/', views.deleteGame)
 ]

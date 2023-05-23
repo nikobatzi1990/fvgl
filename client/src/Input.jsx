@@ -8,9 +8,8 @@ const Input = (props) => {
       <label htmlFor={ label }>{ labelName } </label>
       <input
         className = { className }
-        value = { value }
         placeholder = { placeholder }
-        onChange={ onChange }>
+        onChange={ onChange } >
       </input>
     </div>
   )

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Input from './Input';
+import './App.css';
 
 
 function App() {
@@ -8,6 +9,10 @@ function App() {
   const [year, setYear] = useState('');
   const [developer, setDeveloper] = useState('');
   const [genre, setGenre] = useState('');
+
+  useEffect(() => {
+    handleGameList();
+  }, []);
   
   const handleTitleInput = (e) => {
     setTitle(e.target.value);
@@ -25,6 +30,12 @@ function App() {
     setGenre(e.target.value);
   }
 
+  const handleGameList = async () => {
+    await axios.get('games/')
+    .then(response => console.log(response.data))
+    .catch(error => console.log("ERROR: ", error));
+  }
+
   const submit = async () => {
     const newGame = {
       title: title,
@@ -32,6 +43,7 @@ function App() {
       developer: developer,
       genre: genre
     }
+
     await axios.post('submission/', newGame)
       .then(response => response.data)
       .catch(error => console.log("ERROR: ", error));
@@ -39,6 +51,7 @@ function App() {
   
   return (
     <div className="App">
+      <h2>Submit Game Information</h2>
       <Input
         labelName="Title"
         placeholder="Enter game title"

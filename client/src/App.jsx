@@ -32,7 +32,7 @@ function App() {
 
   const handleGameList = async () => {
     await axios.get('games/')
-    .then(response => console.log(response))
+    .then(response => console.log(response.data))
     .catch(error => console.log("ERROR: ", error));
   }
 

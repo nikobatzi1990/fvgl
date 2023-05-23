@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
 import Input from './Input';
 
 
@@ -7,13 +8,6 @@ function App() {
   const [year, setYear] = useState('');
   const [developer, setDeveloper] = useState('');
   const [genre, setGenre] = useState('');
-  
-  useEffect(() => {
-    console.log('title:', title);
-    console.log('year:', year);
-    console.log('developer: ', developer);
-    console.log('genre', genre);
-  })
   
   const handleTitleInput = (e) => {
     setTitle(e.target.value);
@@ -29,6 +23,18 @@ function App() {
 
   const handleGenreInput = (e) => {
     setGenre(e.target.value);
+  }
+
+  const submit = async () => {
+    const newGame = {
+      title: title,
+      release_year: year,
+      developer: developer,
+      genre: genre
+    }
+    await axios.post('submission/', newGame)
+      .then(response => response.data)
+      .catch(error => console.log("ERROR: ", error));
   }
   
   return (
@@ -53,7 +59,7 @@ function App() {
         placeholder="Enter game genre"
         onChange={ handleGenreInput } ></Input>
 
-      <button className="submit">Submit</button>
+      <button className="submit" onClick={ submit }>Submit</button>
     </div>
   );
 }

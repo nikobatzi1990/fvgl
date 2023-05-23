@@ -13,6 +13,7 @@ def getData(request):
 @api_view(['POST'])
 def addGame(request):
     serializer = GameSerializer(data=request.data)
+    # print('REQUEST: ', serializer)
     if serializer.is_valid():
        serializer.save()
     return Response(serializer.data)

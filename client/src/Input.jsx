@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 const Input = (props) => {
   const { className, label, labelName, placeholder, onChange } = props;

@@ -44,7 +44,7 @@ function App() {
       genre: genre
     }
 
-    await axios.post('submission/', newGame)
+    await axios.post('games/addNewGame/', newGame)
       .then(response => response.data)
       .catch(error => console.log("ERROR: ", error));
   }

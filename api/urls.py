@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.urls import path
-from api import views
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('games/', views.getData),
-    path('submission/', views.addGame),
-    path('game/<int:pk>/', views.editGame),
-    path('deletion/<int:pk>/', views.deleteGame)
+    path('games/addNewGame/', views.addGame),
+    path('games/<int:pk>/edit/', views.editGame),
+    path('games/<int:pk>/deletion/', views.deleteGame)
 ]

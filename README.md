@@ -30,7 +30,7 @@ These instructions will get you a copy of the project up and running on your loc
   ```
 
   NOTE: depending on the version of python you are using, it may be necessary to type "python3" at the start of the command!
-  
+
 - Activate the virtual enviroment by running the following command:
 ```bash
   source venv/bin/activate
@@ -73,14 +73,23 @@ Be sure to check that you are working in the virtual enviroment before moving on
   python manage.py migrate
 ```
 
+#### 6. Install dependencies in client repository
+- Navigate to the client repository in your terminal and install dependencies with the following command:
+```bash
+  cd client && npm install
+```
+- Create a new .gitignore file in the client repository and add "node_modules" to it.
 
-
-## Built With
-
-* [Django REST Framework](https://www.django-rest-framework.org/)  
-* [Python Dotenv](https://pypi.org/project/python-dotenv/)  
-* [Psycopg2](https://pypi.org/project/psycopg2/)  
-* [VirtualEnv](https://virtualenv.pypa.io/en/latest/)
+#### 7. Run server
+- Open two terminals and run the backend server with the following command in your terminal:
+```bash
+  python manage.py runserver
+  ```
+- Run the client server in the second terminal with this command:
+```bash
+  npm run start
+```
+- Stop either server with Ctrl + C
 
 ## License
 

@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from . models import Game
-from . serializers import GameSerializer
+from database.models import Game
+from database.serializers import GameSerializer
 
 @api_view(['GET'])
 def getData(request):

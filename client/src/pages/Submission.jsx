@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Input from '../components/Input';
 
 
@@ -49,29 +51,35 @@ function Submission() {
   }
 
   return (
-    <div className="App">
-      <h2>Submit Game Information</h2>
-      <Input
-        labelName="Title"
-        placeholder="Enter game title"
-        onChange={ handleTitleInput } ></Input>
+    <div>
+      <Header 
+        text="Submit Game Information" />
+      
+      <div className="form">
+        <Input
+          labelName="Title"
+          placeholder="Enter game title"
+          onChange={ handleTitleInput } ></Input>
 
-      <Input
-        labelName="Year"
-        placeholder="Enter release year"
-        onChange={ handleYearInput } ></Input>
+        <Input
+          labelName="Year"
+          placeholder="Enter release year"
+          onChange={ handleYearInput } ></Input>
 
-      <Input
-        labelName="Developer"
-        placeholder="Enter developer name"
-        onChange={ handleDeveloperInput } ></Input>
+        <Input
+          labelName="Developer"
+          placeholder="Enter developer name"
+          onChange={ handleDeveloperInput } ></Input>
 
-      <Input
-        labelName="Genre"
-        placeholder="Enter game genre"
-        onChange={ handleGenreInput } ></Input>
+        <Input
+          labelName="Genre"
+          placeholder="Enter game genre"
+          onChange={ handleGenreInput } ></Input>
 
-      <button className="submit" onClick={ submit }>Submit</button>
+        <button className="submit" onClick={ submit }>Submit</button>
+      </div>
+
+      <Footer />
     </div>
   );
 }

@@ -30,7 +30,7 @@ function Submission() {
   }
 
   const handleGameList = async () => {
-    await axios.get('games/')
+    await axios.get('api/games/')
     .then(response => console.log(response.data))
     .catch(error => console.log("ERROR: ", error));
   }
@@ -43,7 +43,7 @@ function Submission() {
       genre: genre
     }
 
-    await axios.post('games/addNewGame/', newGame)
+    await axios.post('api/games/addNewGame/', newGame)
       .then(response => response.data)
       .catch(error => console.log("ERROR: ", error));
   }

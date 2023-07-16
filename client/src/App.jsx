@@ -3,7 +3,7 @@ import './App.css';
 import Homepage from './pages/Homepage';
 import Submission from './pages/Submission';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import Submission from './pages/Submission';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
           <Route path='/submission' element={<Submission/>}></Route>
         </Routes>
       </BrowserRouter>
+      <Submission />
     </div>
   );
 }

@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Input from '../components/Input';
-
+import Button from '../components/Button';
 
 function Submission() {
   const [title, setTitle] = useState('');
   const [year, setYear] = useState('');
   const [developer, setDeveloper] = useState('');
   const [genre, setGenre] = useState('');
-
-  useEffect(() => {
-    handleGameList();
-  }, []);
   
   const handleTitleInput = (e) => {
     setTitle(e.target.value);
@@ -29,13 +27,7 @@ function Submission() {
     setGenre(e.target.value);
   }
 
-  const handleGameList = async () => {
-    await axios.get('games/')
-    .then(response => console.log(response.data))
-    .catch(error => console.log("ERROR: ", error));
-  }
-
-  const submit = async () => {
+  const handleSubmit = async () => {
     const newGame = {
       title: title,
       release_year: year,
@@ -43,35 +35,58 @@ function Submission() {
       genre: genre
     }
 
-    await axios.post('games/addNewGame/', newGame)
+    await axios.post('api/games/addNewGame/', newGame)
       .then(response => response.data)
       .catch(error => console.log("ERROR: ", error));
   }
 
   return (
-    <div className="App">
-      <h2>Submit Game Information</h2>
-      <Input
-        labelName="Title"
-        placeholder="Enter game title"
-        onChange={ handleTitleInput } ></Input>
+    <div>
+      <Header 
+        text="Submit Game Information" />
+      
+      <div className="form">
+        <form
+          onSubmit = { handleSubmit } >
 
-      <Input
-        labelName="Year"
-        placeholder="Enter release year"
-        onChange={ handleYearInput } ></Input>
+          <label>
+            { "Game Title:" }
+            <Input
+              placeholder="Enter game title"
+              onChange={ handleTitleInput } ></Input>
+          </label>
 
-      <Input
-        labelName="Developer"
-        placeholder="Enter developer name"
-        onChange={ handleDeveloperInput } ></Input>
+          <label>
+            { "Release Year:" }
+            <Input
+              placeholder="Enter release year"
+              onChange={ handleYearInput } ></Input>
+          </label>
 
-      <Input
-        labelName="Genre"
-        placeholder="Enter game genre"
-        onChange={ handleGenreInput } ></Input>
+          <label>
+            { "Developer:" }
+            <Input
+              placeholder="Enter developer name"
+              onChange={ handleDeveloperInput } ></Input>
+          </label>
 
-      <button className="submit" onClick={ submit }>Submit</button>
+          <label>
+            { "Genre:" }
+            <Input
+              placeholder="Enter game genre"
+              onChange={ handleGenreInput } ></Input>
+          </label>
+
+          <Button 
+            className="submission__button"
+            type="submit"
+            text="Submit"/>
+
+        </form>
+      </div>
+
+      <Footer />
+              
     </div>
   );
 }

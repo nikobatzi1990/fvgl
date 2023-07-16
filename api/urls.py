@@ -4,8 +4,8 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('games/', views.getData),
-    path('games/addNewGame/', views.addGame),
-    path('games/<int:pk>/edit/', views.editGame),
-    path('games/<int:pk>/deletion/', views.deleteGame)
+    path('api/games/', views.getData),
+    path('api/games/addNewGame/', views.addGame),
+    path('api/games/<int:pk>/edit/', views.editGame),
+    path('api/games/<int:pk>/deletion/', views.deleteGame)
 ]

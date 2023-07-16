@@ -3,7 +3,9 @@ import '../styles/Footer.css';
 
 const Footer = () => {
   return (
-    <p>© 2023 FVGL</p>
+    <footer>
+      <p>© 2023 FVGL</p>
+    </footer>
   )
 }
 

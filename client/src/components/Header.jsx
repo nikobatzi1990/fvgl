@@ -5,10 +5,12 @@ const Header = (props) => {
   const { className, text } = props;
    
   return (
-    <h1
-    className = { className } >
-      { text}
-    </h1>
+    <header>
+      <h1
+      className = { className } >
+        { text}
+      </h1>
+    </header>
   )
 }
 

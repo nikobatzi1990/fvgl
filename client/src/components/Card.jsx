@@ -1,9 +1,15 @@
 import React from 'react';
 import '../styles/Card.css';
 
-const Card = () => {
+const Card = (props) => {
+  const { title, developer, year, genre } = props;
   return (
-    <h1>Card</h1>
+    <div>
+      <h1>{ title }</h1>
+      <p>{developer }</p>
+      <p>{ year }</p>
+      <p>{ genre }</p>
+    </div>
   )
 }
 

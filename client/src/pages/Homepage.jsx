@@ -24,6 +24,14 @@ function Homepage() {
     console.log('🎮', games);
   }, [handleGameList]);
 
+  const handleDeletion = async (event) => {
+    event.preventDefault();
+    const gameId = event.target.parentElement.dataset.gameId;
+    await axios.delete(`/api/games/${gameId}/deletion/`)
+      .then(result => console.log(result.data))
+      .catch(error => console.log(error))
+  }
+
   return (
     <>
       <Header
@@ -38,14 +46,19 @@ function Homepage() {
       <div>
         {(games.length >= 1)
           ? games.map((game) => (
-            <Card
-              className='game'
-              key={game.title}
-              title={game.title}
-              developer={game.developer}
-              year={game.release_year}
-              genre={game.genre}
-            />
+            <div key={game.id}
+                 data-game-id={game.id}>
+              <Card
+                className='game'
+                title={game.title}
+                developer={game.developer}
+                year={game.release_year}
+                genre={game.genre} />
+              <Button 
+                className='trash-button'
+                text="Delete"
+                onClick={ handleDeletion }/>
+            </div>
           ))
           : 'Loading...'
         }

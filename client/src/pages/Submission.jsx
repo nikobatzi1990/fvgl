@@ -5,7 +5,6 @@ import Footer from '../components/Footer';
 import Input from '../components/Input';
 import Button from '../components/Button';
 
-
 function Submission() {
   const [title, setTitle] = useState('');
   const [year, setYear] = useState('');
@@ -87,6 +86,7 @@ function Submission() {
       </div>
 
       <Footer />
+              
     </div>
   );
 }

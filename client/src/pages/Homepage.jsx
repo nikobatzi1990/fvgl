@@ -49,7 +49,6 @@ function Homepage() {
           ))
           : 'Loading...'
         }
-
       </div>
       
       <Footer />

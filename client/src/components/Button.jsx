@@ -9,6 +9,7 @@ const Button = (props) => {
       className = { className }
       type = { type } 
       onClick = { onClick }>
+      type = { type } >
       { text }
     </button>
   )

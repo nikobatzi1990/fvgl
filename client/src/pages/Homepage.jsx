@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Card from '../components/Card';
+import Button from '../components/Button';
 
 function Homepage() {
   
+  const navigate = useNavigate();
   const [games, setGames] = useState([]);
   
   const handleGameList = useCallback(async () => {
@@ -25,11 +28,19 @@ function Homepage() {
     <>
       <Header
         text="Homepage" />
+      
+      <Button 
+        className='button'
+        text="Add a New Game!"
+        onClick={() => navigate('/submission')}
+      />
+
       <div>
         {(games.length >= 1)
           ? games.map((game) => (
             <Card
-              key = {game.title}
+              className='game'
+              key={game.title}
               title={game.title}
               developer={game.developer}
               year={game.release_year}
@@ -38,7 +49,6 @@ function Homepage() {
           ))
           : 'Loading...'
         }
-
       </div>
       
       <Footer />

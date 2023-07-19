@@ -7,6 +7,8 @@ const Button = (props) => {
   return (
     <button
       className = { className }
+      type = { type } 
+      onClick = { onClick }>
       type = { type } >
       { text }
     </button>

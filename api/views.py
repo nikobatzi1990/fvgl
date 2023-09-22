@@ -12,7 +12,7 @@ def getAllGameData(request):
 @api_view(['GET'])
 def getSingleGameData(request, pk):
    game = Game.objects.get(pk=pk)
-   serializer = GameSerializer(game, many=False)
+   serializer = GameSerializer(game)
    return Response(serializer.data)
 
 @api_view(['POST'])

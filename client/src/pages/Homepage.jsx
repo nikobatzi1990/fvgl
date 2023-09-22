@@ -15,13 +15,13 @@ function Homepage() {
     const gameList = await axios.get('api/games/')
     .then((result) => result.data)
     .catch((err) => console.log("ERROR: ", err))
-    // console.log('🎲', gameList);
+    console.log('🎲', gameList);
     setGames(gameList);
   }, []);
   
   useEffect(() => {
     handleGameList();
-    // console.log('🎮', games);
+    console.log('🎮', games);
   }, [handleGameList]);
 
   const handleDeletion = async (event) => {
@@ -61,7 +61,7 @@ function Homepage() {
               <Button 
                 className='edit-button'
                 text="Edit" 
-                onClick={() => navigate(`/${game.id}/edit`)}/>
+                onClick={() => navigate(`/${game.id}`)}/>
             </div>
           ))
           : 'Loading...'

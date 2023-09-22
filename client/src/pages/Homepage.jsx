@@ -15,13 +15,11 @@ function Homepage() {
     const gameList = await axios.get('api/games/')
     .then((result) => result.data)
     .catch((err) => console.log("ERROR: ", err))
-    // console.log('🎲', gameList);
     setGames(gameList);
   }, []);
   
   useEffect(() => {
     handleGameList();
-    // console.log('🎮', games);
   }, [handleGameList]);
 
   const handleDeletion = async (event) => {

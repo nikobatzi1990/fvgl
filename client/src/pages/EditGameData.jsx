@@ -7,6 +7,7 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 
 function EditGameData () {
+  const navigate = useNavigate();
   const gameId = useParams();
   const [game, setGame] = useState({});
   const [title, setTitle] = useState('');
@@ -55,7 +56,6 @@ function EditGameData () {
       developer: developer,
       genre: genre
     }
-
     await axios.patch(`/api/games/${gameId.game}/edit/`, editedGame);
   }
 
@@ -99,9 +99,12 @@ function EditGameData () {
           <Button 
             className="submission__button"
             type="submit"
-            text="Submit"/>
-
+            text="Submit" />
         </form>
+
+        <Button 
+          onClick={() => navigate('/home')}
+          text="Back to Homepage"/>
       </div>
 
       <Footer />

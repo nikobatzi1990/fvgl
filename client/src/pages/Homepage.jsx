@@ -58,6 +58,10 @@ function Homepage() {
                 className='trash-button'
                 text="Delete"
                 onClick={ handleDeletion }/>
+              <Button 
+                className='edit-button'
+                text="Edit" 
+                onClick={() => navigate('/submission')}/>
             </div>
           ))
           : 'Loading...'

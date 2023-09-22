@@ -61,7 +61,7 @@ function Homepage() {
               <Button 
                 className='edit-button'
                 text="Edit" 
-                onClick={() => navigate(`/${game.id}`)}/>
+                onClick={() => navigate(`/${game.id}/edit`)}/>
             </div>
           ))
           : 'Loading...'

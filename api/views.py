@@ -4,10 +4,16 @@ from database.models import Game
 from database.serializers import GameSerializer
 
 @api_view(['GET'])
-def getData(request):
+def getAllGameData(request):
   games = Game.objects.all().order_by('id')
   serializer = GameSerializer(games, many=True)
   return Response(serializer.data)
+
+@api_view(['GET'])
+def getSingleGameData(request, pk):
+   game = Game.objects.get(pk=pk)
+   serializer = GameSerializer(game, many=False)
+   return Response(serializer.data)
 
 @api_view(['POST'])
 def addGame(request):

@@ -41,7 +41,7 @@ function Submission() {
   }
 
   return (
-    <div>
+    <div className='homepage'>
       <Header 
         text="Submit Game Information" />
       

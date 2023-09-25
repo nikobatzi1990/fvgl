@@ -103,7 +103,7 @@ function EditGameData () {
         </form>
 
         <Button 
-          onClick={() => navigate('/home')}
+          onClick={() => navigate('/')}
           text="Back to Homepage"/>
       </div>
 

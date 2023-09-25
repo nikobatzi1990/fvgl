@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
+import '../styles/Input.css';
 
 const Input = (props) => {
-  const { className, label, labelName, placeholder, onChange } = props;
+  const { className, placeholder, onChange } = props;
 
   return(
     <div>
-      <label htmlFor={ label }>{ labelName } </label>
       <input
         className = { className }
         placeholder = { placeholder }

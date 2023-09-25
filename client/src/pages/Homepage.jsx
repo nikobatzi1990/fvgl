@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Card from '../components/Card';
 import Button from '../components/Button';
+import '../styles/Homepage.css';
 
 function Homepage() {
   
@@ -31,33 +32,33 @@ function Homepage() {
   }
 
   return (
-    <>
+    <div className='homepage'>
       <Header
-        text="Homepage" />
+        text="My Favorite Video Games" />
       
       <Button 
-        className='button'
+        className='button add__game'
         text="Add a New Game!"
         onClick={() => navigate('/submission')}
       />
 
-      <div>
+      <div className='gamelist'>
         {(games.length >= 1)
           ? games.map((game) => (
-            <div key={game.id}
+            <div className='game'
+                 key={game.id}
                  data-game-id={game.id}>
               <Card
-                className='game'
                 title={game.title}
                 developer={game.developer}
                 year={game.release_year}
                 genre={game.genre} />
               <Button 
-                className='trash-button'
+                className='delete__button'
                 text="Delete"
                 onClick={ handleDeletion }/>
               <Button 
-                className='edit-button'
+                className='edit__button'
                 text="Edit" 
                 onClick={() => navigate(`/${game.id}/edit`)}/>
             </div>
@@ -67,7 +68,7 @@ function Homepage() {
       </div>
       
       <Footer />
-    </>
+    </div>
   )
 }
 

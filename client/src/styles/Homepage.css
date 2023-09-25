@@ -4,8 +4,17 @@
 }
 
 .gamelist {
+  margin: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 15px;
+}
+
+.game {
+  width: 50%;
+  padding: 15px;
+  border-radius: 10px;;
+  background-color: #DFCCFB;
 }

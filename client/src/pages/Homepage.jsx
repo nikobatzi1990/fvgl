@@ -45,10 +45,10 @@ function Homepage() {
       <div className='gamelist'>
         {(games.length >= 1)
           ? games.map((game) => (
-            <div key={game.id}
+            <div className='game'
+                 key={game.id}
                  data-game-id={game.id}>
               <Card
-                className='game'
                 title={game.title}
                 developer={game.developer}
                 year={game.release_year}

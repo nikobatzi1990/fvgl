@@ -31,9 +31,9 @@ function Homepage() {
   }
 
   return (
-    <>
+    <div className='homepage'>
       <Header
-        text="Homepage" />
+        text="My Favorite Video Games" />
       
       <Button 
         className='button'
@@ -41,7 +41,7 @@ function Homepage() {
         onClick={() => navigate('/submission')}
       />
 
-      <div>
+      <div className='gamelist'>
         {(games.length >= 1)
           ? games.map((game) => (
             <div key={game.id}
@@ -67,7 +67,7 @@ function Homepage() {
       </div>
       
       <Footer />
-    </>
+    </div>
   )
 }
 

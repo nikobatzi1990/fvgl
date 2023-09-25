@@ -5,7 +5,7 @@ const Header = (props) => {
   const { className, text } = props;
    
   return (
-    <header>
+    <header className='header'>
       <h1
       className = { className } >
         { text}

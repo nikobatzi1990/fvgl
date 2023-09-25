@@ -1,3 +1,6 @@
-header {
+.header {
+  padding: 15px;
   background-color: #6527BE;
+  color: white;
+  text-align: center;
 }

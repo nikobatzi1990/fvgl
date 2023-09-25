@@ -2,14 +2,11 @@ import React from 'react';
 import '../styles/Header.css';
 
 const Header = (props) => {
-  const { className, text } = props;
+  const { text } = props;
    
   return (
     <header className='header'>
-      <h1
-      className = { className } >
-        { text}
-      </h1>
+      <h1>{ text}</h1>
     </header>
   )
 }

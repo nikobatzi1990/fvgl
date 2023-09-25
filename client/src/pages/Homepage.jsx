@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Card from '../components/Card';
 import Button from '../components/Button';
+import '../styles/Homepage.css';
 
 function Homepage() {
   
@@ -36,7 +37,7 @@ function Homepage() {
         text="My Favorite Video Games" />
       
       <Button 
-        className='button'
+        className='button add__game'
         text="Add a New Game!"
         onClick={() => navigate('/submission')}
       />
@@ -53,11 +54,11 @@ function Homepage() {
                 year={game.release_year}
                 genre={game.genre} />
               <Button 
-                className='trash-button'
+                className='delete__button'
                 text="Delete"
                 onClick={ handleDeletion }/>
               <Button 
-                className='edit-button'
+                className='edit__button'
                 text="Edit" 
                 onClick={() => navigate(`/${game.id}/edit`)}/>
             </div>

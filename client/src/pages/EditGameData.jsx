@@ -60,55 +60,61 @@ function EditGameData () {
   }
 
   return (
-    <>
+    <div className="submission">
       <Header
           text="Edit Game Data" />
 
-<div className="form">
+      <div>
         <form
+          className="form"
           onSubmit = { handleSubmit } >
 
-          <label>
+          <label className="label">
             { "Game Title:" }
             <Input
+              className="input"
               placeholder={ title }
               onChange={ handleTitleInput } ></Input>
           </label>
 
-          <label>
+          <label className="label">
             { "Release Year:" }
             <Input
+              className="input"
               placeholder={ year }
               onChange={ handleYearInput } ></Input>
           </label>
 
-          <label>
+          <label className="label">
             { "Developer:" }
             <Input
+              className="input"
               placeholder={ developer }
               onChange={ handleDeveloperInput } ></Input>
           </label>
 
-          <label>
+          <label className="label">
             { "Genre:" }
             <Input
+              className="input"
               placeholder={ genre }
               onChange={ handleGenreInput } ></Input>
           </label>
 
           <Button 
-            className="submission__button"
+            className="submission__button button"
             type="submit"
             text="Submit" />
         </form>
 
         <Button 
+          className="back__button button"
           onClick={() => navigate('/')}
           text="Back to Homepage"/>
       </div>
 
       <Footer />
-    </>
+    </div>
   )
 }
 

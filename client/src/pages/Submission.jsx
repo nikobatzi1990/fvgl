@@ -84,7 +84,7 @@ function Submission() {
           </label>
 
           <Button 
-            className="submission__button"
+            className="submission__button button"
             type="submit"
             text="Submit"/>
 

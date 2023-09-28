@@ -54,11 +54,11 @@ function Homepage() {
                 year={game.release_year}
                 genre={game.genre} />
               <Button 
-                className='delete__button'
+                className='delete__button button'
                 text="Delete"
                 onClick={ handleDeletion }/>
               <Button 
-                className='edit__button'
+                className='edit__button button'
                 text="Edit" 
                 onClick={() => navigate(`/${game.id}/edit`)}/>
             </div>

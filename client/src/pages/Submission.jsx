@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -7,6 +8,7 @@ import Button from '../components/Button';
 import '../styles/Submission.css';
 
 function Submission() {
+  const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [year, setYear] = useState('');
   const [developer, setDeveloper] = useState('');
@@ -87,8 +89,11 @@ function Submission() {
             className="submission__button button"
             type="submit"
             text="Submit"/>
-
         </form>
+        <Button 
+          className="back__button button"
+          onClick={() => navigate('/')}
+          text="Back to Homepage"/>
       </div>
 
       <Footer />

@@ -50,39 +50,43 @@ function Submission() {
       
       <div>
         <form className="form" onSubmit = { handleSubmit }>
+          <div>
+            <label for="game__title" className="label">{ "Game Title:" }</label>
+            <Input
+              type="text"
+              id="game__title"
+              className="input"
+              placeholder="Enter game title"
+              onChange={ handleTitleInput }/>
+          </div>
+          <div>
+            <label for="game__release" className="label">{ "Release Year:" }</label>
+            <Input
+              id="game__release"
+              type="text"
+              className="input"
+              placeholder="Enter release year"
+              onChange={ handleYearInput }/>
+          </div>
+          <div>  
+            <label for="game__developer" className="label">{ "Developer:" }</label>
+            <Input
+              id="game__developer"
+              type="text"
+              className="input"
+              placeholder="Enter developer name"
+              onChange={ handleDeveloperInput }/>
+          </div>
+          <div>  
+            <label for="game__genre" className="label">{ "Genre:" }</label>
+            <Input
+              id="game__genre"
+              type="text"
+              className="input"
+              placeholder="Enter game genre"
+              onChange={ handleGenreInput }/>
+          </div>
 
-          <label for="game__title" className="label">{ "Game Title:" }</label>
-          <Input
-            type="text"
-            id="game__title"
-            className="input"
-            placeholder="Enter game title"
-            onChange={ handleTitleInput }/>
-
-          <label for="game__release" className="label">{ "Release Year:" }</label>
-          <Input
-            id="game__release"
-            type="text"
-            className="input"
-            placeholder="Enter release year"
-            onChange={ handleYearInput }/>
-          
-          <label for="game__developer" className="label">{ "Developer:" }</label>
-          <Input
-            id="game__developer"
-            type="text"
-            className="input"
-            placeholder="Enter developer name"
-            onChange={ handleDeveloperInput }/>
-          
-
-          <label for="game__genre" className="label">{ "Genre:" }</label>
-          <Input
-            id="game__genre"
-            type="text"
-            className="input"
-            placeholder="Enter game genre"
-            onChange={ handleGenreInput }/>
 
           <Button 
             className="submission__button button"

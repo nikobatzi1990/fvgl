@@ -46,50 +46,54 @@ function Submission() {
   return (
     <div className='submission'>
       <Header 
-        text="Submit Game Information" />
+        text="Submit Game Information"/>
       
-      <div >
-        <form 
-          className="form" 
-          onSubmit = { handleSubmit } >
-
-          <label className="label">
-            { "Game Title:" }
+      <div>
+        <form className="form" onSubmit = { handleSubmit }>
+          <div>
+            <label for="game__title" className="label">{ "Game Title:" }</label>
             <Input
+              type="text"
+              id="game__title"
               className="input"
               placeholder="Enter game title"
-              onChange={ handleTitleInput } ></Input>
-          </label>
-
-          <label className="label">
-            { "Release Year:" }
+              onChange={ handleTitleInput }/>
+          </div>
+          <div>
+            <label for="game__release" className="label">{ "Release Year:" }</label>
             <Input
+              id="game__release"
+              type="text"
               className="input"
               placeholder="Enter release year"
-              onChange={ handleYearInput } ></Input>
-          </label>
-
-          <label className="label">
-            { "Developer:" }
+              onChange={ handleYearInput }/>
+          </div>
+          <div>  
+            <label for="game__developer" className="label">{ "Developer:" }</label>
             <Input
+              id="game__developer"
+              type="text"
               className="input"
               placeholder="Enter developer name"
-              onChange={ handleDeveloperInput } ></Input>
-          </label>
-
-          <label className="label">
-            { "Genre:" }
+              onChange={ handleDeveloperInput }/>
+          </div>
+          <div>  
+            <label for="game__genre" className="label">{ "Genre:" }</label>
             <Input
+              id="game__genre"
+              type="text"
               className="input"
               placeholder="Enter game genre"
-              onChange={ handleGenreInput } ></Input>
-          </label>
+              onChange={ handleGenreInput }/>
+          </div>
+
 
           <Button 
             className="submission__button button"
             type="submit"
             text="Submit"/>
         </form>
+
         <Button 
           className="back__button button"
           onClick={() => navigate('/')}

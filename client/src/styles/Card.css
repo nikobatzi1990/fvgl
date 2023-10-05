@@ -3,14 +3,16 @@
   padding: 15px;
   border-radius: 10px;;
   background-color: #DFCCFB;
+  text-align: center;
 }
 
-.card {
+.game__data {
   display: flex;
+  justify-content: space-around;
 }
 
 .image__div {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   background-color: grey;
 }

@@ -3,12 +3,12 @@
   padding: 15px;
   border-radius: 10px;;
   background-color: #DFCCFB;
+  text-align: center;
 }
 
-.card {
+.game__data {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .image__div {

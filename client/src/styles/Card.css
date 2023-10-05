@@ -4,3 +4,13 @@
   border-radius: 10px;;
   background-color: #DFCCFB;
 }
+
+.card {
+  display: flex;
+}
+
+.image__div {
+  height: 200px;
+  width: 200px;
+  background-color: grey;
+}

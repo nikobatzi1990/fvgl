@@ -5,8 +5,8 @@ const Card = (props) => {
   const { className, title, developer, year, genre } = props;
   return (
     <div className="card">
+      <h2>{ title }</h2>
       <div className={ className } >
-        <h2>{ title }</h2>
         <p>{ developer }</p>
         <p>{ year }</p>
         <p>{ genre }</p>

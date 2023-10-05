@@ -7,10 +7,12 @@
 
 .card {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .image__div {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   background-color: grey;
 }

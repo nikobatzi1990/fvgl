@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../components/Header';
@@ -13,6 +13,11 @@ function Submission() {
   const [year, setYear] = useState('');
   const [developer, setDeveloper] = useState('');
   const [genre, setGenre] = useState('');
+  const [image, setImage] = useState('');
+
+    useEffect(() => {
+      console.log('❤️', image)
+    }, [image]);
   
   const handleTitleInput = (e) => {
     setTitle(e.target.value);
@@ -31,7 +36,7 @@ function Submission() {
   }
 
   const handleImageInput = (e) => {
-    setGenre(e.target.value);
+    setImage(e.target.value);
   }
 
   const handleSubmit = async () => {
@@ -39,7 +44,8 @@ function Submission() {
       title: title,
       release_year: year,
       developer: developer,
-      genre: genre
+      genre: genre,
+      image: image
     }
 
     await axios.post('api/games/addNewGame/', newGame)
@@ -55,7 +61,7 @@ function Submission() {
       <div>
         <form className="form" onSubmit = { handleSubmit }>
           <div>
-            <label for="game__title" className="label">{ "Game Title:" }</label>
+            <label htmlFor="game__title" className="label">{ "Game Title:" }</label>
             <Input
               type="text"
               id="game__title"
@@ -64,7 +70,7 @@ function Submission() {
               onChange={ handleTitleInput }/>
           </div>
           <div>
-            <label for="game__release" className="label">{ "Release Year:" }</label>
+            <label htmlFor="game__release" className="label">{ "Release Year:" }</label>
             <Input
               id="game__release"
               type="text"
@@ -73,7 +79,7 @@ function Submission() {
               onChange={ handleYearInput }/>
           </div>
           <div>  
-            <label for="game__developer" className="label">{ "Developer:" }</label>
+            <label htmlFor="game__developer" className="label">{ "Developer:" }</label>
             <Input
               id="game__developer"
               type="text"
@@ -82,7 +88,7 @@ function Submission() {
               onChange={ handleDeveloperInput }/>
           </div>
           <div>  
-            <label for="game__genre" className="label">{ "Genre:" }</label>
+            <label htmlFor="game__genre" className="label">{ "Genre:" }</label>
             <Input
               id="game__genre"
               type="text"
@@ -92,7 +98,7 @@ function Submission() {
           </div>
 
           <div>  
-            <label for="game__image" className="label">{ "Image:" }</label>
+            <label htmlFor="game__image" className="label">{ "Image:" }</label>
             <Input
               id="game__image"
               type="file"
@@ -101,7 +107,6 @@ function Submission() {
               onChange={ handleImageInput }
               />
           </div>
-
 
           <Button 
             className="submission__button button"

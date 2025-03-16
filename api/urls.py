@@ -11,4 +11,4 @@ urlpatterns = [
     path('api/games/addNewGame/', views.addGame),
     path('api/games/<int:pk>/edit/', views.editGame),
     path('api/games/<int:pk>/deletion/', views.deleteGame)
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]

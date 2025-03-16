@@ -33,7 +33,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 # Actual directory user files go to
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # URL used to access the media
 MEDIA_URL = '/media/'

@@ -20,7 +20,8 @@ def addGame(request):
     serializer = GameSerializer(data=request.data)
     if serializer.is_valid():
        serializer.save()
-    return Response(serializer.data)
+       return Response(serializer.data)
+    return Response(serializer.errors)
 
 @api_view(['PATCH'])
 def editGame(request, pk):

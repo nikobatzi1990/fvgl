@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='game',
             name='image_url',
-            field=models.ImageField(blank=True, null=True, upload_to=database.models.upload_to),
+            field=models.ImageField(blank=True, null=True, upload_to=database.models),
         ),
     ]

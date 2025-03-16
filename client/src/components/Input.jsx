@@ -2,14 +2,16 @@ import React from 'react';
 import '../styles/Input.css';
 
 const Input = (props) => {
-  const { className, placeholder, onChange } = props;
+  const { className, id, placeholder, onChange, type } = props;
 
   return(
     <div>
       <input
-        className = { className }
-        placeholder = { placeholder }
-        onChange={ onChange } >
+        id={ id }
+        className={ className }
+        placeholder={ placeholder }
+        onChange={ onChange } 
+        type={ type }>
       </input>
     </div>
   )

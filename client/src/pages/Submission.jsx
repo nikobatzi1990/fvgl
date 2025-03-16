@@ -30,6 +30,10 @@ function Submission() {
     setGenre(e.target.value);
   }
 
+  const handleImageInput = (e) => {
+    setGenre(e.target.value);
+  }
+
   const handleSubmit = async () => {
     const newGame = {
       title: title,
@@ -85,6 +89,17 @@ function Submission() {
               className="input"
               placeholder="Enter game genre"
               onChange={ handleGenreInput }/>
+          </div>
+
+          <div>  
+            <label for="game__image" className="label">{ "Image:" }</label>
+            <Input
+              id="game__image"
+              type="file"
+              accept="image/png, image/jpeg"
+              // className="input"
+              onChange={ handleImageInput }
+              />
           </div>
 
 

@@ -13,10 +13,13 @@ function Homepage() {
   const [games, setGames] = useState([]);
   
   const handleGameList = useCallback(async () => {
-    const gameList = await axios.get('api/games/')
-    .then((result) => result.data)
-    .catch((err) => console.log("ERROR: ", err))
-    setGames(gameList);
+    try {
+      const { data } = await axios.get('api/games/');
+      setGames(data);
+    } catch (err) {
+      console.log("ERROR: ", err);
+      setGames([]);
+    }
   }, []);
   
   useEffect(() => {

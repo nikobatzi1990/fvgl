@@ -97,7 +97,7 @@ function Submission() {
               id="game__image"
               type="file"
               accept="image/png, image/jpeg"
-              // className="input"
+              className="input"
               onChange={ handleImageInput }
               />
           </div>

@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
@@ -9,4 +11,4 @@ urlpatterns = [
     path('api/games/addNewGame/', views.addGame),
     path('api/games/<int:pk>/edit/', views.editGame),
     path('api/games/<int:pk>/deletion/', views.deleteGame)
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

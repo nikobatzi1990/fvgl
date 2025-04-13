@@ -62,7 +62,7 @@ function EditGameData () {
   return (
     <div className="submission">
       <Header
-          text="Edit Game Data" />
+          text="Edit Game" />
 
       <div>
         <form

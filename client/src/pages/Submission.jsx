@@ -45,7 +45,7 @@ function Submission() {
       release_year: year,
       developer: developer,
       genre: genre,
-      image: image
+      image_url: image
     }
 
     await axios.post('api/games/addNewGame/', newGame)
@@ -56,7 +56,7 @@ function Submission() {
   return (
     <div className='submission'>
       <Header 
-        text="Submit Game Information"/>
+        text="New Game"/>
       
       <div>
         <form className="form" onSubmit = { handleSubmit }>

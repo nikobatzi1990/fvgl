@@ -115,7 +115,8 @@ function EditGameData () {
               onChange={ handleGenreInput } ></Input>
           </label>
 
-          <label htmlFor="game__image" className="label">{ "Image:" }</label>
+          <label htmlFor="game__image" className="label">
+            { "Image:" }
             <Input
               id="game__image"
               type="file"
@@ -123,6 +124,7 @@ function EditGameData () {
               className="input"
               onChange={ handleImageInput }
               />
+            </label>
 
           <Button 
             className="submission__button button"

@@ -14,6 +14,10 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+import cloudinary_storage
 
 load_dotenv()
 
@@ -32,12 +36,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-# Actual directory user files go to
-MEDIA_ROOT = BASE_DIR / 'media'
-
-# URL used to access the media
-MEDIA_URL = '/media/'
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -48,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'cloudinary_storage',
+    'cloudinary',
     'rest_framework',
     'database',
 
@@ -140,3 +140,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Cloudinary Configuration
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get("CLOUD_NAME"),
+    'API_KEY': os.environ.get("API_KEY"),
+    'API_SECRET': os.environ.get("API_SECRET"),
+    'SECURE': True,
+}

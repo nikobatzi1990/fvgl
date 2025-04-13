@@ -14,6 +14,7 @@ function EditGameData () {
   const [year, setYear] = useState('');
   const [developer, setDeveloper] = useState('');
   const [genre, setGenre] = useState('');
+   const [image, setImage] = useState('');
 
   const handleGameData = useCallback(async () => {
     const gameData = await axios.get(`/api/games/game/${gameId.game}/`)
@@ -49,12 +50,17 @@ function EditGameData () {
     setGenre(e.target.value);
   }
 
+  const handleImageInput = (e) => {
+    setImage(e.target.value);
+  }
+
   const handleSubmit = async () => {
     const editedGame = {
       title: title,
       release_year: year,
       developer: developer,
-      genre: genre
+      genre: genre,
+      image_url: image
     }
     await axios.patch(`/api/games/${gameId.game}/edit/`, editedGame);
   }
@@ -69,37 +75,54 @@ function EditGameData () {
           className="form"
           onSubmit = { handleSubmit } >
 
-          <label className="label">
+          <label htmlFor="game__title" className="label">
             { "Game Title:" }
             <Input
+              id="game__title"
+              type="text"
               className="input"
               placeholder={ title }
               onChange={ handleTitleInput } ></Input>
           </label>
 
-          <label className="label">
+          <label htmlFor="game__release" className="label">
             { "Release Year:" }
             <Input
+              id="game__release"
+              type="text"
               className="input"
               placeholder={ year }
               onChange={ handleYearInput } ></Input>
           </label>
 
-          <label className="label">
+          <label htmlFor="game__developer" className="label">
             { "Developer:" }
             <Input
+              id="game__developer"
+              type="text"
               className="input"
               placeholder={ developer }
               onChange={ handleDeveloperInput } ></Input>
           </label>
 
-          <label className="label">
+          <label htmlFor="game__genre" className="label">
             { "Genre:" }
             <Input
+              id="game__genre"
+              type="text"
               className="input"
               placeholder={ genre }
               onChange={ handleGenreInput } ></Input>
           </label>
+
+          <label htmlFor="game__image" className="label">{ "Image:" }</label>
+            <Input
+              id="game__image"
+              type="file"
+              accept="image/png, image/jpeg"
+              className="input"
+              onChange={ handleImageInput }
+              />
 
           <Button 
             className="submission__button button"

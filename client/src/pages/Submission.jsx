@@ -63,8 +63,8 @@ function Submission() {
           <div>
             <label htmlFor="game__title" className="label">{ "Game Title:" }</label>
             <Input
-              type="text"
               id="game__title"
+              type="text"
               className="input"
               placeholder="Enter game title"
               onChange={ handleTitleInput }/>

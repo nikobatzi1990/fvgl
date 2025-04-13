@@ -13,7 +13,7 @@ function Submission() {
   const [year, setYear] = useState('');
   const [developer, setDeveloper] = useState('');
   const [genre, setGenre] = useState('');
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState({});
 
     useEffect(() => {
       console.log('❤️', image)
@@ -36,21 +36,26 @@ function Submission() {
   }
 
   const handleImageInput = (e) => {
-    setImage(e.target.value);
+    setImage(e.target.files[0]);
   }
 
-  const handleSubmit = async () => {
-    const newGame = {
-      title: title,
-      release_year: year,
-      developer: developer,
-      genre: genre,
-      image_url: image
-    }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    await axios.post('api/games/addNewGame/', newGame)
+    const newGame = new FormData();
+    newGame.append('title', title);
+    newGame.append('release_year', year);
+    newGame.append('developer', developer);
+    newGame.append('genre', genre);
+    newGame.append('image_url', image);
+
+    await axios.post('api/games/addNewGame/', newGame, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
       .then(response => response.data)
-      .catch(error => console.log("ERROR: ", error));
+      .catch(error => console.log("ERROR: ", error.response?.data || error.message));
   }
 
   return (

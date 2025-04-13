@@ -14,7 +14,7 @@ function EditGameData () {
   const [year, setYear] = useState('');
   const [developer, setDeveloper] = useState('');
   const [genre, setGenre] = useState('');
-   const [image, setImage] = useState('');
+  const [image, setImage] = useState({});
 
   const handleGameData = useCallback(async () => {
     const gameData = await axios.get(`/api/games/game/${gameId.game}/`)
@@ -51,18 +51,26 @@ function EditGameData () {
   }
 
   const handleImageInput = (e) => {
-    setImage(e.target.value);
+    setImage(e.target.files[0]);
   }
 
-  const handleSubmit = async () => {
-    const editedGame = {
-      title: title,
-      release_year: year,
-      developer: developer,
-      genre: genre,
-      image_url: image
-    }
-    await axios.patch(`/api/games/${gameId.game}/edit/`, editedGame);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const editedGame = new FormData();
+    editedGame.append('title', title);
+    editedGame.append('release_year', year);
+    editedGame.append('developer', developer);
+    editedGame.append('genre', genre);
+    editedGame.append('image_url', image);
+    
+    await axios.patch(`/api/games/${gameId.game}/edit/`, editedGame, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    .then(response => response.data)
+    .catch(error => console.log("ERROR: ", error.response?.data));;
   }
 
   return (

@@ -1,5 +1,6 @@
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, parser_classes
+from rest_framework.parsers import MultiPartParser, FormParser
 from database.models import Game
 from database.serializers import GameSerializer
 
@@ -16,13 +17,20 @@ def getSingleGameData(request, pk):
    return Response(serializer.data)
 
 @api_view(['POST'])
+@parser_classes([MultiPartParser, FormParser])
 def addGame(request):
-    serializer = GameSerializer(data=request.data)
-    print(request.data)
-    if serializer.is_valid():
-       serializer.save()
-       return Response(serializer.data)
-    return Response(serializer.errors)
+   serializer = GameSerializer(data=request.data)
+   if serializer.is_valid():
+      try:
+         serializer.save()
+         return Response(serializer.data, status=200)
+      except Exception as e:
+         print("Save Error:", str(e))
+         return Response({'error': str(e)}, status=500)
+   else:
+      print("Validation Error:", serializer.errors)
+      return Response(serializer.errors, status=400)
+ 
 
 @api_view(['PATCH'])
 def editGame(request, pk):

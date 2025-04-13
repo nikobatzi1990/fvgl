@@ -55,7 +55,8 @@ function Homepage() {
                 title={game.title}
                 developer={game.developer}
                 year={game.release_year}
-                genre={game.genre} />
+                genre={game.genre}
+                image_url={game.image_url} />
               <Button 
                 className='delete__button button'
                 text="Delete"

@@ -14,7 +14,7 @@ function EditGameData () {
   const [year, setYear] = useState('');
   const [developer, setDeveloper] = useState('');
   const [genre, setGenre] = useState('');
-   const [image, setImage] = useState({});
+  const [image, setImage] = useState({});
 
   const handleGameData = useCallback(async () => {
     const gameData = await axios.get(`/api/games/game/${gameId.game}/`)

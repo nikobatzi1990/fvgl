@@ -1,25 +1,33 @@
-import React from 'react';
-import '../styles/Card.css';
+import React from "react";
+import PropTypes from "prop-types";
+import "../styles/Card.css";
 
-const Card = (props) => {
-  const { className, title, developer, year, genre, image_url } = props;
+function Card (props) {
+  const { className, title, developer, year, genre, imageUrl } = props;
   return (
-    <div className={ className } >
-      <h2>{ title }</h2>
-      <div className='game__data'>
+    <div className={className}>
+      <h2>{title}</h2>
+      <div className="game__data">
         <div>
-          <p>{ developer }</p>
-          <p>{ year }</p>
-          <p>{ genre }</p>
+          <p>{developer}</p>
+          <p>{year}</p>
+          <p>{genre}</p>
         </div>
         <div>
-          <img src={ image_url }
-          alt="video game"
-          height="150px" width="150px"/>
+          <img src={imageUrl} alt="video game" height="150px" width="150px" />
         </div>
       </div>
     </div>
-  )
+  );
+};
+
+Card.PropTypes = {
+   className: PropTypes.string,
+   title: PropTypes.string, 
+   developer: PropTypes.string,
+   year: PropTypes.number,
+   genre: PropTypes.string, 
+   imageUrl: PropTypes.string,
 }
 
 export default Card;

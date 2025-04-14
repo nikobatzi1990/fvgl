@@ -1,132 +1,149 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Input from '../components/Input';
-import Button from '../components/Button';
-import '../styles/Submission.css';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Input from "../components/Input";
+import Button from "../components/Button";
+import "../styles/Submission.css";
 
 function Submission() {
   const navigate = useNavigate();
-  const [title, setTitle] = useState('');
-  const [year, setYear] = useState('');
-  const [developer, setDeveloper] = useState('');
-  const [genre, setGenre] = useState('');
+  const [title, setTitle] = useState("");
+  const [year, setYear] = useState("");
+  const [developer, setDeveloper] = useState("");
+  const [genre, setGenre] = useState("");
   const [image, setImage] = useState({});
 
-    useEffect(() => {
-      console.log('❤️', image)
-    }, [image]);
-  
+  useEffect(() => {
+    console.log("❤️", image);
+  }, [image]);
+
   const handleTitleInput = (e) => {
     setTitle(e.target.value);
-  }
+  };
 
   const handleYearInput = (e) => {
     setYear(e.target.value);
-  }
+  };
 
   const handleDeveloperInput = (e) => {
     setDeveloper(e.target.value);
-  }
+  };
 
   const handleGenreInput = (e) => {
     setGenre(e.target.value);
-  }
+  };
 
   const handleImageInput = (e) => {
     setImage(e.target.files[0]);
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newGame = new FormData();
-    newGame.append('title', title);
-    newGame.append('release_year', year);
-    newGame.append('developer', developer);
-    newGame.append('genre', genre);
-    newGame.append('image_url', image);
+    newGame.append("title", title);
+    newGame.append("release_year", year);
+    newGame.append("developer", developer);
+    newGame.append("genre", genre);
+    newGame.append("image_url", image);
 
-    await axios.post('api/games/addNewGame/', newGame, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    })
-      .then(response => response.data)
-      .catch(error => console.log("ERROR: ", error.response?.data || error.message));
-  }
+    await axios
+      .post("api/games/addNewGame/", newGame, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => response.data)
+      .catch((error) =>
+        console.log("ERROR: ", error.response.data || error.message),
+      );
+  };
 
   return (
-    <div className='submission'>
-      <Header 
-        text="New Game"/>
-      
+    <div className="submission">
+      <Header text="New Game" />
+
       <div>
-        <form className="form" onSubmit = { handleSubmit }>
+        <form className="form" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="game__title" className="label">{ "Game Title:" }</label>
+            <label htmlFor="game__title" className="label">
+              {"Game Title:"}
+            </label>
             <Input
               id="game__title"
               type="text"
               className="input"
               placeholder="Enter game title"
-              onChange={ handleTitleInput }/>
+              onChange={handleTitleInput}
+            />
           </div>
           <div>
-            <label htmlFor="game__release" className="label">{ "Release Year:" }</label>
+            <label htmlFor="game__release" className="label">
+              {"Release Year:"}
+            </label>
             <Input
               id="game__release"
               type="text"
               className="input"
               placeholder="Enter release year"
-              onChange={ handleYearInput }/>
+              onChange={handleYearInput}
+            />
           </div>
-          <div>  
-            <label htmlFor="game__developer" className="label">{ "Developer:" }</label>
+          <div>
+            <label htmlFor="game__developer" className="label">
+              {"Developer:"}
+            </label>
             <Input
               id="game__developer"
               type="text"
               className="input"
               placeholder="Enter developer name"
-              onChange={ handleDeveloperInput }/>
+              onChange={handleDeveloperInput}
+            />
           </div>
-          <div>  
-            <label htmlFor="game__genre" className="label">{ "Genre:" }</label>
+          <div>
+            <label htmlFor="game__genre" className="label">
+              {"Genre:"}
+            </label>
             <Input
               id="game__genre"
               type="text"
               className="input"
               placeholder="Enter game genre"
-              onChange={ handleGenreInput }/>
+              onChange={handleGenreInput}
+            />
           </div>
 
-          <div>  
-            <label htmlFor="game__image" className="label">{ "Image:" }</label>
+          <div>
+            <label htmlFor="game__image" className="label">
+              {"Image:"}
+            </label>
             <Input
               id="game__image"
               type="file"
               accept="image/png, image/jpeg"
               className="input"
-              onChange={ handleImageInput }
-              />
+              onChange={handleImageInput}
+            />
           </div>
 
-          <Button 
+          <Button
             className="submission__button button"
             type="submit"
-            text="Submit"/>
+            text="Submit"
+          />
         </form>
 
-        <Button 
+        <Button
           className="back__button button"
-          onClick={() => navigate('/')}
-          text="Back to Homepage"/>
+          onClick={() => navigate("/")}
+          text="Back to Homepage"
+        />
       </div>
 
       <Footer />
-              
     </div>
   );
 }

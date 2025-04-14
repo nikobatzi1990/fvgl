@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../styles/Card.css";
 
-function Card (props) {
+function Card(props) {
   const { className, title, developer, year, genre, imageUrl } = props;
   return (
     <div className={className}>
@@ -19,15 +19,22 @@ function Card (props) {
       </div>
     </div>
   );
+}
+
+Card.propTypes = {
+  className: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  developer: PropTypes.string,
+  year: PropTypes.number.isRequired,
+  genre: PropTypes.string,
+  imageUrl: PropTypes.string,
 };
 
-Card.PropTypes = {
-   className: PropTypes.string,
-   title: PropTypes.string, 
-   developer: PropTypes.string,
-   year: PropTypes.number,
-   genre: PropTypes.string, 
-   imageUrl: PropTypes.string,
-}
+Card.defaultProps = {
+  className: "",
+  developer: "",
+  genre: "",
+  imageUrl: "",
+};
 
 export default Card;

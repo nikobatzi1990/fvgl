@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import SubmitButton from "../components/SubmitButton";
 import "../styles/Submission.css";
 
 function Submission() {
@@ -67,10 +68,8 @@ function Submission() {
 
       <div>
         <form className="form" onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="game__title" className="label">
-              {"Game Title:"}
-            </label>
+          <label htmlFor="game__title" className="label">
+            Game Title:
             <Input
               id="game__title"
               type="text"
@@ -78,11 +77,10 @@ function Submission() {
               placeholder="Enter game title"
               onChange={handleTitleInput}
             />
-          </div>
-          <div>
-            <label htmlFor="game__release" className="label">
-              {"Release Year:"}
-            </label>
+          </label>
+
+          <label htmlFor="game__release" className="label">
+            Release Year:
             <Input
               id="game__release"
               type="text"
@@ -90,11 +88,10 @@ function Submission() {
               placeholder="Enter release year"
               onChange={handleYearInput}
             />
-          </div>
-          <div>
-            <label htmlFor="game__developer" className="label">
-              {"Developer:"}
-            </label>
+          </label>
+
+          <label htmlFor="game__developer" className="label">
+            Developer:
             <Input
               id="game__developer"
               type="text"
@@ -102,11 +99,10 @@ function Submission() {
               placeholder="Enter developer name"
               onChange={handleDeveloperInput}
             />
-          </div>
-          <div>
-            <label htmlFor="game__genre" className="label">
-              {"Genre:"}
-            </label>
+          </label>
+
+          <label htmlFor="game__genre" className="label">
+            Genre:
             <Input
               id="game__genre"
               type="text"
@@ -114,12 +110,10 @@ function Submission() {
               placeholder="Enter game genre"
               onChange={handleGenreInput}
             />
-          </div>
+          </label>
 
-          <div>
-            <label htmlFor="game__image" className="label">
-              {"Image:"}
-            </label>
+          <label htmlFor="game__image" className="label">
+            Image:
             <Input
               id="game__image"
               type="file"
@@ -127,13 +121,9 @@ function Submission() {
               className="input"
               onChange={handleImageInput}
             />
-          </div>
+          </label>
 
-          <Button
-            className="submission__button button"
-            type="submit"
-            text="Submit"
-          />
+          <SubmitButton className="submission__button button" />
         </form>
 
         <Button

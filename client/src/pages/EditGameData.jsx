@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import SubmitButton from "../components/SubmitButton";
 
 function EditGameData() {
   const navigate = useNavigate();
@@ -82,51 +83,51 @@ function EditGameData() {
       <div>
         <form className="form" onSubmit={handleSubmit}>
           <label htmlFor="game__title" className="label">
-            {"Game Title:"}
+            Game Title:
             <Input
               id="game__title"
               type="text"
               className="input"
               placeholder={title}
               onChange={handleTitleInput}
-            ></Input>
+            />
           </label>
 
           <label htmlFor="game__release" className="label">
-            {"Release Year:"}
+            Release Year:
             <Input
               id="game__release"
               type="text"
               className="input"
               placeholder={year}
               onChange={handleYearInput}
-            ></Input>
+            />
           </label>
 
           <label htmlFor="game__developer" className="label">
-            {"Developer:"}
+            Developer:
             <Input
               id="game__developer"
               type="text"
               className="input"
               placeholder={developer}
               onChange={handleDeveloperInput}
-            ></Input>
+            />
           </label>
 
           <label htmlFor="game__genre" className="label">
-            {"Genre:"}
+            Genre:
             <Input
               id="game__genre"
               type="text"
               className="input"
               placeholder={genre}
               onChange={handleGenreInput}
-            ></Input>
+            />
           </label>
 
           <label htmlFor="game__image" className="label">
-            {"Image:"}
+            Image:
             <Input
               id="game__image"
               type="file"
@@ -136,11 +137,7 @@ function EditGameData() {
             />
           </label>
 
-          <Button
-            className="submission__button button"
-            type="submit"
-            text="Submit"
-          />
+          <SubmitButton className="submission__button button" />
         </form>
 
         <Button

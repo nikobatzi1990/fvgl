@@ -10,10 +10,10 @@ function Header(props) {
       <h1>{text}</h1>
     </header>
   );
-};
-
-Header.PropTypes = {
-  text: PropTypes.string.isRequired
 }
+
+Header.propTypes = {
+  text: PropTypes.string.isRequired,
+};
 
 export default Header;

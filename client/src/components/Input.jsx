@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "../styles/Input.css";
 
-const Input = (props) => {
+function Input(props) {
   const { className, id, placeholder, onChange, type } = props;
 
   return (
@@ -12,9 +13,24 @@ const Input = (props) => {
         placeholder={placeholder}
         onChange={onChange}
         type={type}
-      ></input>
+      />
     </div>
   );
+}
+
+Input.propTypes = {
+  id: PropTypes.string,
+  className: PropTypes.string,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  type: PropTypes.string,
+};
+
+Input.defaultProps = {
+  id: "",
+  className: "",
+  placeholder: "",
+  type: "text",
 };
 
 export default Input;

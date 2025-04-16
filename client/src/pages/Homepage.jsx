@@ -23,7 +23,7 @@ function Homepage() {
 
   useEffect(() => {
     fetchGameList();
-    // console.log('❤️', games);
+    console.log("❤️", games);
   }, [fetchGameList]);
 
   const handleDeletion = async (event) => {
@@ -54,7 +54,7 @@ function Homepage() {
                   developer={game.developer}
                   year={game.release_year}
                   genre={game.genre}
-                  image_url={game.image_url}
+                  imageUrl={game.image_url}
                 />
                 <Button
                   className="delete__button button"

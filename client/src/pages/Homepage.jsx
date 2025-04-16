@@ -23,7 +23,6 @@ function Homepage() {
 
   useEffect(() => {
     fetchGameList();
-    console.log("❤️", games);
   }, [fetchGameList]);
 
   const handleDeletion = async (event) => {

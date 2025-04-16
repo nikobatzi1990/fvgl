@@ -13,6 +13,6 @@
         "controlComponents": ["Input"],
         "assert": "both"
       }
-  ],
+    ]
   }
 }

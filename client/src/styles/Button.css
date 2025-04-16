@@ -8,7 +8,8 @@
   color: white;
 }
 
-.add__game, .back__button {
+.add__game,
+.back__button {
   width: 15%;
   border-radius: 20px;
   align-self: center;

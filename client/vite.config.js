@@ -6,6 +6,14 @@ export default defineConfig(() => ({
   build: {
     outDir: "build",
   },
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:8000",
+        changeOrigin: true,
+      },
+    },
+  },
   plugins: [react(), eslint()],
   test: {
     globals: true,

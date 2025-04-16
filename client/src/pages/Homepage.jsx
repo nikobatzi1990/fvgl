@@ -11,9 +11,9 @@ function Homepage() {
   const navigate = useNavigate();
   const [games, setGames] = useState([]);
 
-  const handleGameList = useCallback(async () => {
+  const fetchGameList = useCallback(async () => {
     try {
-      const { data } = await axios.get("api/games/");
+      const { data } = await axios.get("/api/games/");
       setGames(data);
     } catch (err) {
       console.log("ERROR: ", err);
@@ -22,12 +22,13 @@ function Homepage() {
   }, []);
 
   useEffect(() => {
-    handleGameList();
-  }, [handleGameList]);
+    fetchGameList();
+    // console.log('❤️', games);
+  }, [fetchGameList]);
 
   const handleDeletion = async (event) => {
     event.preventDefault();
-    const { gameId } = event.target.parentElement.dataset;
+    const gameId = event.target.parentElement.dataset;
     await axios
       .delete(`/api/games/${gameId}/deletion/`)
       .then((result) => console.log(result.data))

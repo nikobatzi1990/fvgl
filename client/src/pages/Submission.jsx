@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import SubmitButton from "../components/SubmitButton";
-import "../styles/Submission.css";
 
 function Submission() {
   const navigate = useNavigate();

@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../styles/Card.css";
 
 function Card(props) {
   const { className, title, developer, year, genre, imageUrl } = props;

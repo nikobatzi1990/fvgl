@@ -5,7 +5,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
 import Button from "../components/Button";
-import "../styles/Homepage.css";
 
 function Homepage() {
   const navigate = useNavigate();

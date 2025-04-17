@@ -122,11 +122,11 @@ function Submission() {
             />
           </label>
 
-          <SubmitButton className="submission__button button" />
+          <SubmitButton className="btn" />
         </form>
 
         <Button
-          className="back__button button"
+          className="btn"
           onClick={() => navigate("/")}
           text="Back to Homepage"
         />

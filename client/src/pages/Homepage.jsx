@@ -34,19 +34,19 @@ function Homepage() {
   };
 
   return (
-    <div className="homepage">
-      <Header text="My Favorite Video Games" />
+    <div className="container">
+      <Header className="row" text="My Favorite Video Games" />
 
       <Button
-        className="button add__game"
+        className="btn"
         text="Add a New Game!"
         onClick={() => navigate("/submission")}
       />
 
-      <div className="gamelist">
+      <div className="">
         {games.length >= 1
           ? games.map((game) => (
-              <div className="game" key={game.id} data-game-id={game.id}>
+              <div className="m-5" key={game.id} data-game-id={game.id}>
                 <Card
                   title={game.title}
                   developer={game.developer}
@@ -55,12 +55,12 @@ function Homepage() {
                   imageUrl={game.image_url}
                 />
                 <Button
-                  className="delete__button button"
+                  className="btn"
                   text="Delete"
                   onClick={handleDeletion}
                 />
                 <Button
-                  className="edit__button button"
+                  className="btn"
                   text="Edit"
                   onClick={() => navigate(`/${game.id}/edit`)}
                 />

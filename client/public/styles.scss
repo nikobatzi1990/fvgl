@@ -1,0 +1,13 @@
+@use "../node_modules/bootstrap/scss/bootstrap";
+.btn {
+    --bs-btn-color: white;
+    --bs-btn-bg: black;
+    --bs-btn-border-color: black; 
+}
+
+.card {
+    width: 20rem;
+    --bs-card-bg: white;
+    --bs-card-border-color: black;
+    --bs-card-color: black;
+}

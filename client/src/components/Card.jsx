@@ -2,26 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Card(props) {
-  const { className, title, developer, year, genre, imageUrl } = props;
+  const { title, developer, year, genre, imageUrl } = props;
   return (
-    <div className={className}>
-      <h2>{title}</h2>
-      <div className="game__data">
-        <div>
-          <p>{developer}</p>
-          <p>{year}</p>
-          <p>{genre}</p>
-        </div>
-        <div>
-          <img src={imageUrl} alt="video game" height="150px" width="150px" />
-        </div>
+    <div className="card">
+      <img src={imageUrl} alt="video game" className="card-img-top" />
+      <div className="card-body">
+        <h5 className="card-title">{title}</h5>
+        <p className="card-text">{developer}</p>
+        <p className="card-text">{year}</p>
+        <p className="card-text">{genre}</p>
       </div>
     </div>
   );
 }
 
 Card.propTypes = {
-  className: PropTypes.string,
   title: PropTypes.string.isRequired,
   developer: PropTypes.string,
   year: PropTypes.number.isRequired,
@@ -30,7 +25,6 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  className: "",
   developer: "",
   genre: "",
   imageUrl: "",

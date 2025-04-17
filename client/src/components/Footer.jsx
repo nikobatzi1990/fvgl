@@ -2,8 +2,8 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="footer">
-      <p>© 2023 FVGL</p>
+    <footer className="row footer">
+      <p className="text-center">© 2023 FVGL</p>
     </footer>
   );
 }

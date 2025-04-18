@@ -59,7 +59,7 @@ Be sure to check that you are working in the virtual enviroment before moving on
 #### 4. Create .env files and .gitignore
 - Create a new .env file in the root repository and copy-paste the data from .env.example
 
-  - SECRET_KEY= [Generate a Django Secret Key and copy-paste it here](https://codinggear.blog/django-generate-secret-key/#generate-secret-key-in-django-using-getrandomsecretkeynbspfunction)  
+  - SECRET_KEY= [Generate a Django Secret Key and copy-paste it here](https://medium.com/django-unleashed/securing-django-applications-best-practices-for-managing-secret-keys-and-environment-variables-f10f5a53490b)
 
   - DB_NAME= copy-paste the name you gave your database that you created in Step 3
 

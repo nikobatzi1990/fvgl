@@ -5,7 +5,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
 import Button from "../components/Button";
-import DeleteButton from "../components/DeleteButton";
 
 function Homepage() {
   const navigate = useNavigate();
@@ -45,11 +44,6 @@ function Homepage() {
                   year={game.release_year}
                   genre={game.genre}
                   imageUrl={game.image_url}
-                />
-                <DeleteButton />
-                <Button
-                  className="btn"
-                  onClick={() => navigate(`/${game.id}/edit`)}
                 />
               </div>
             ))

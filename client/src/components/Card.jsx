@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import DeleteButton from "./DeleteButton";
+import EditButton from "./EditButton";
 
 function Card(props) {
   const { title, developer, year, genre, imageUrl } = props;
@@ -12,6 +14,8 @@ function Card(props) {
         <p className="card-text">{year}</p>
         <p className="card-text">{genre}</p>
       </div>
+      <DeleteButton />
+      <EditButton />
     </div>
   );
 }

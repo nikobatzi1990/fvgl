@@ -47,27 +47,30 @@ function Submission() {
     newGame.append("release_year", year);
     newGame.append("developer", developer);
     newGame.append("genre", genre);
-    newGame.append("image_url", image);
-
-    await axios
-      .post("api/games/addNewGame/", newGame, {
+    if (image && image.name) {
+      newGame.append("image_url", image);
+    }
+    try {
+      await axios.post("api/games/addNewGame/", newGame, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-      })
-      .then((response) => response.data)
-      .catch((error) =>
-        console.log("ERROR: ", error.response.data || error.message),
-      );
+      });
+    } catch (err) {
+      console.log("ERROR: ", err);
+    }
+    navigate("/");
   };
 
   return (
-    <div className="container">
+    <div className="container d-flex flex-column">
       <Header text="New Game" />
 
-      <div className="row col-10">
+      <div className="row col-4 my-4 align-self-center">
         <form
-          className="d-flex flex-column align-self-center"
+          className="d-flex flex-column align-self-center gap-2"
+          encType="multipart/form-data"
+          autoComplete="off"
           onSubmit={handleSubmit}
         >
           <label htmlFor="game__title" className="form-label">
@@ -127,13 +130,13 @@ function Submission() {
 
           <SubmitButton className="btn" />
         </form>
-
-        <Button
-          className="btn"
-          onClick={() => navigate("/")}
-          text="Back to Homepage"
-        />
       </div>
+
+      <Button
+        className="btn align-self-start"
+        onClick={() => navigate("/")}
+        text="Back to Homepage"
+      />
 
       <Footer />
     </div>

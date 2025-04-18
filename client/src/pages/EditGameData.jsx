@@ -64,88 +64,96 @@ function EditGameData() {
     editedGame.append("release_year", year);
     editedGame.append("developer", developer);
     editedGame.append("genre", genre);
-    editedGame.append("image_url", image);
-
-    await axios
-      .patch(`/api/games/${gameId.game}/edit/`, editedGame, {
+    if (image && image.name) {
+      editedGame.append("image_url", image);
+    }
+    try {
+      await axios.patch(`/api/games/${gameId.game}/edit/`, editedGame, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-      })
-      .then((response) => response.data)
-      .catch((error) => console.log("ERROR: ", error.response.data));
+      });
+    } catch (err) {
+      console.log("ERROR: ", err);
+    }
+    navigate("/");
   };
 
   return (
-    <div className="submission">
+    <div className="container d-flex flex-column">
       <Header text="Edit Game" />
 
-      <div>
-        <form className="form" onSubmit={handleSubmit}>
-          <label htmlFor="game__title" className="label">
+      <div className="row col-4 my-4 align-self-center">
+        <form
+          className="d-flex flex-column align-self-center gap-2"
+          encType="multipart/form-data"
+          autoComplete="off"
+          onSubmit={handleSubmit}
+        >
+          <label htmlFor="game__title" className="form-label">
             Game Title:
             <Input
               id="game__title"
               type="text"
-              className="input"
+              className="form-control"
               placeholder={title}
               onChange={handleTitleInput}
             />
           </label>
 
-          <label htmlFor="game__release" className="label">
+          <label htmlFor="game__release" className="form-label">
             Release Year:
             <Input
               id="game__release"
               type="text"
-              className="input"
+              className="form-control"
               placeholder={year}
               onChange={handleYearInput}
             />
           </label>
 
-          <label htmlFor="game__developer" className="label">
+          <label htmlFor="game__developer" className="form-label">
             Developer:
             <Input
               id="game__developer"
               type="text"
-              className="input"
+              className="form-control"
               placeholder={developer}
               onChange={handleDeveloperInput}
             />
           </label>
 
-          <label htmlFor="game__genre" className="label">
+          <label htmlFor="game__genre" className="form-label">
             Genre:
             <Input
               id="game__genre"
               type="text"
-              className="input"
+              className="form-control"
               placeholder={genre}
               onChange={handleGenreInput}
             />
           </label>
 
-          <label htmlFor="game__image" className="label">
+          <label htmlFor="game__image" className="form-label">
             Image:
             <Input
               id="game__image"
               type="file"
+              className="form-control"
               accept="image/png, image/jpeg"
-              className="input"
               onChange={handleImageInput}
             />
           </label>
 
-          <SubmitButton className="submission__button button" />
+          <SubmitButton className="btn" />
         </form>
-
-        <Button
-          className="back__button button"
-          onClick={() => navigate("/")}
-          text="Back to Homepage"
-        />
       </div>
+
+      <Button
+        className="btn align-self-start"
+        onClick={() => navigate("/")}
+        text="Back to Homepage"
+      />
 
       <Footer />
     </div>

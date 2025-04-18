@@ -43,10 +43,10 @@ function Homepage() {
         onClick={() => navigate("/submission")}
       />
 
-      <div className="">
+      <div className="row flex-row">
         {games.length >= 1
           ? games.map((game) => (
-              <div className="m-5" key={game.id} data-game-id={game.id}>
+              <div className="m-5 col" key={game.id} data-game-id={game.id}>
                 <Card
                   title={game.title}
                   developer={game.developer}

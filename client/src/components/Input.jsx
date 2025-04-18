@@ -20,7 +20,7 @@ function Input(props) {
 Input.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
-  placeholder: PropTypes.string,
+  placeholder: PropTypes.string || PropTypes.number,
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string,
 };

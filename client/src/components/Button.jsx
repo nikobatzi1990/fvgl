@@ -12,11 +12,12 @@ function Button({ className, onClick, text }) {
 Button.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
 };
 
 Button.defaultProps = {
   className: "",
+  text: "",
 };
 
 export default Button;

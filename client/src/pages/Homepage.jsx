@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
 import Button from "../components/Button";
+import DeleteButton from "../components/DeleteButton";
 
 function Homepage() {
   const navigate = useNavigate();
@@ -23,15 +24,6 @@ function Homepage() {
   useEffect(() => {
     fetchGameList();
   }, [fetchGameList]);
-
-  const handleDeletion = async (event) => {
-    event.preventDefault();
-    const gameId = event.target.parentElement.dataset;
-    await axios
-      .delete(`/api/games/${gameId}/deletion/`)
-      .then((result) => console.log(result.data))
-      .catch((error) => console.log(error));
-  };
 
   return (
     <div className="container">
@@ -54,14 +46,9 @@ function Homepage() {
                   genre={game.genre}
                   imageUrl={game.image_url}
                 />
+                <DeleteButton />
                 <Button
                   className="btn"
-                  text="Delete"
-                  onClick={handleDeletion}
-                />
-                <Button
-                  className="btn"
-                  text="Edit"
                   onClick={() => navigate(`/${game.id}/edit`)}
                 />
               </div>

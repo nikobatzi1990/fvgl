@@ -62,62 +62,65 @@ function Submission() {
   };
 
   return (
-    <div className="submission">
+    <div className="container">
       <Header text="New Game" />
 
-      <div>
-        <form className="form" onSubmit={handleSubmit}>
-          <label htmlFor="game__title" className="label">
+      <div className="row col-10">
+        <form
+          className="d-flex flex-column align-self-center"
+          onSubmit={handleSubmit}
+        >
+          <label htmlFor="game__title" className="form-label">
             Game Title:
             <Input
               id="game__title"
               type="text"
-              className="input"
+              className="form-control"
               placeholder="Enter game title"
               onChange={handleTitleInput}
             />
           </label>
 
-          <label htmlFor="game__release" className="label">
+          <label htmlFor="game__release" className="form-label">
             Release Year:
             <Input
               id="game__release"
               type="text"
-              className="input"
+              className="form-control"
               placeholder="Enter release year"
               onChange={handleYearInput}
             />
           </label>
 
-          <label htmlFor="game__developer" className="label">
+          <label htmlFor="game__developer" className="form-label">
             Developer:
             <Input
               id="game__developer"
               type="text"
-              className="input"
+              className="form-control"
               placeholder="Enter developer name"
               onChange={handleDeveloperInput}
             />
           </label>
 
-          <label htmlFor="game__genre" className="label">
+          <label htmlFor="game__genre" className="form-label">
             Genre:
             <Input
               id="game__genre"
               type="text"
-              className="input"
+              className="form-control"
               placeholder="Enter game genre"
               onChange={handleGenreInput}
             />
           </label>
 
-          <label htmlFor="game__image" className="label">
+          <label htmlFor="game__image" className="form-label">
             Image:
             <Input
               id="game__image"
               type="file"
               accept="image/png, image/jpeg"
-              className="input"
+              className="form-control"
               onChange={handleImageInput}
             />
           </label>

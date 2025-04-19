@@ -11863,4 +11863,19 @@ textarea.form-control-lg {
   --bs-card-color: black;
 }
 
+* {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+}
+
+header {
+  font-weight: 700;
+  font-style: normal;
+}
+
+footer {
+  font-weight: 300;
+  font-style: normal;
+}
+
 /*# sourceMappingURL=styles.css.map */

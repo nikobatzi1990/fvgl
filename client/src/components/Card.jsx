@@ -13,9 +13,15 @@ function Card(props) {
         <p className="card-text">{developer}</p>
         <p className="card-text">{year}</p>
         <p className="card-text">{genre}</p>
+        <div
+          className="btn-group d-flex"
+          role="group"
+          aria-label="delete and edit buttons"
+        >
+          <DeleteButton />
+          <EditButton />
+        </div>
       </div>
-      <DeleteButton />
-      <EditButton />
     </div>
   );
 }

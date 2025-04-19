@@ -7,7 +7,15 @@ function Card(props) {
   const { title, developer, year, genre, imageUrl } = props;
   return (
     <div className="card">
-      <img src={imageUrl} alt="video game" className="card-img-top" />
+      {imageUrl ? (
+        <img src={imageUrl} alt="video game" className="card-img-top" />
+      ) : (
+        <img
+          src="https://res.cloudinary.com/dp2pjsbnz/image/upload/v1745035806/27002_ss0dyb.jpg"
+          alt="default"
+          className="card-img-top"
+        />
+      )}
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{developer}</p>

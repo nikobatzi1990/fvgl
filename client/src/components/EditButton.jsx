@@ -6,10 +6,9 @@ function EditButton() {
 
   const handleEdit = (e) => {
     e.preventDefault();
-    const data = e.target.parentElement.parentElement.dataset;
-    console.log(data);
+    const { gameId } = e.target.closest("[data-game-id]").dataset;
     try {
-      navigate(`/${data.gameId}/edit`);
+      navigate(`/${gameId}/edit`);
     } catch (err) {
       console.log("ERROR: ", err);
     }

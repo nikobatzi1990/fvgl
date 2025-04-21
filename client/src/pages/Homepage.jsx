@@ -26,10 +26,10 @@ function Homepage() {
 
   return (
     <div className="container">
-      <Header className="row" text="My Favorite Video Games" />
+      <Header text="My Favorite Video Games" />
 
       <Button
-        className="btn"
+        className="btn btn-primary"
         text="Add a New Game!"
         onClick={() => navigate("/submission")}
       />

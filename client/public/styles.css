@@ -11850,17 +11850,33 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.btn {
-  --bs-btn-color: white;
-  --bs-btn-bg: black;
-  --bs-btn-border-color: black;
+body {
+  width: 100vw;
+  background-color: #ECEBF2;
+}
+
+.btn-primary {
+  background-color: #25291C;
+  color: #ECEBF2;
+  border-color: #25291C;
+}
+
+.btn-primary:hover {
+  background-color: #ECEBF2;
+  color: #25291C;
+  border-color: #ECEBF2;
 }
 
 .card {
   width: 20rem;
-  --bs-card-bg: white;
-  --bs-card-border-color: black;
-  --bs-card-color: black;
+  background-color: #25291C;
+  border-color: #25291C;
+  color: #25291C;
+}
+
+.card-title,
+.card-body {
+  color: white;
 }
 
 * {
@@ -11871,6 +11887,8 @@ textarea.form-control-lg {
 header {
   font-weight: 700;
   font-style: normal;
+  background-color: #4C1E4F;
+  color: white;
 }
 
 footer {

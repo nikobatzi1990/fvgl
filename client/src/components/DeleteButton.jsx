@@ -14,7 +14,7 @@ function DeleteButton() {
 
   return (
     <button
-      className="btn"
+      className="btn btn-primary"
       onClick={handleDeletion}
       type="button"
       aria-labelledby="delete"

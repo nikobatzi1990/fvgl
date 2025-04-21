@@ -6,7 +6,7 @@ import EditButton from "./EditButton";
 function Card(props) {
   const { title, developer, year, genre, imageUrl } = props;
   return (
-    <div className="card">
+    <div className="card mb-5">
       {imageUrl ? (
         <img src={imageUrl} alt="video game" className="card-img-top" />
       ) : (

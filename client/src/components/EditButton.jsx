@@ -16,7 +16,7 @@ function EditButton() {
 
   return (
     <button
-      className="btn"
+      className="btn btn-primary"
       onClick={handleEdit}
       type="button"
       aria-labelledby="edit"

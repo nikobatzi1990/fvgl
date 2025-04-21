@@ -5,7 +5,7 @@ function Header(props) {
   const { text } = props;
 
   return (
-    <header className="row header">
+    <header className="row header p-3">
       <h1 className="d-flex justify-content-center align-items-center">
         {text}
       </h1>

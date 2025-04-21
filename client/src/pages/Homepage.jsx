@@ -25,11 +25,11 @@ function Homepage() {
   }, [fetchGameList]);
 
   return (
-    <div className="container">
+    <div className="container d-flex flex-column">
       <Header text="My Favorite Video Games" />
 
       <Button
-        className="btn btn-primary"
+        className="btn btn-regular align-self-center m-3 p-3"
         text="Add a New Game!"
         onClick={() => navigate("/submission")}
       />

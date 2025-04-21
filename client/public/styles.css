@@ -11855,13 +11855,19 @@ body {
   background-color: #ECEBF2;
 }
 
-.btn-primary {
+.btn-regular {
   background-color: #25291C;
   color: #ECEBF2;
   border-color: #25291C;
 }
 
-.btn-primary:hover {
+.btn-regular:hover {
+  background-color: #ECEBF2;
+  color: #25291C;
+  border-color: #ECEBF2;
+}
+
+.btn-regular:active {
   background-color: #ECEBF2;
   color: #25291C;
   border-color: #ECEBF2;

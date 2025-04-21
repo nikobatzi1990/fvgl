@@ -10,18 +10,23 @@ body {
     background-color: $ghost-white;
 }
 
-
-.btn-primary {
+.btn-regular {
    background-color: $black-olive;
    color: $ghost-white;
    border-color: $black-olive;
 }
 
-.btn-primary:hover {
+.btn-regular:hover {
    background-color: $ghost-white;
    color: $black-olive;
    border-color: $ghost-white;
 }
+
+.btn-regular:active {
+    background-color: $ghost-white;
+    color: $black-olive;
+    border-color: $ghost-white;
+ }
 
 .card {
     width: 20rem;

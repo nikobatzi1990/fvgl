@@ -145,12 +145,12 @@ function EditGameData() {
             />
           </label>
 
-          <SubmitButton className="btn" />
+          <SubmitButton className="btn btn-regular" />
         </form>
       </div>
 
       <Button
-        className="btn align-self-start"
+        className="btn btn-regular align-self-start"
         onClick={() => navigate("/")}
         text="Back to Homepage"
       />

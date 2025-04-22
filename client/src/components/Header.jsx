@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../styles/Header.css";
 
 function Header(props) {
   const { text } = props;
 
   return (
-    <header className="header">
-      <h1>{text}</h1>
+    <header className="row header p-3">
+      <h1 className="d-flex justify-content-center align-items-center">
+        {text}
+      </h1>
     </header>
   );
 }

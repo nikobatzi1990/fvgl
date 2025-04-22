@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../styles/Input.css";
 
 function Input(props) {
   const { className, id, placeholder, onChange, type } = props;
@@ -21,7 +20,7 @@ function Input(props) {
 Input.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
-  placeholder: PropTypes.string,
+  placeholder: PropTypes.string || PropTypes.number,
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string,
 };

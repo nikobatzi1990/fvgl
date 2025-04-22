@@ -5,7 +5,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
 import Button from "../components/Button";
-import "../styles/Homepage.css";
 
 function Homepage() {
   const navigate = useNavigate();
@@ -25,45 +24,26 @@ function Homepage() {
     fetchGameList();
   }, [fetchGameList]);
 
-  const handleDeletion = async (event) => {
-    event.preventDefault();
-    const gameId = event.target.parentElement.dataset;
-    await axios
-      .delete(`/api/games/${gameId}/deletion/`)
-      .then((result) => console.log(result.data))
-      .catch((error) => console.log(error));
-  };
-
   return (
-    <div className="homepage">
+    <div className="container-fluid d-flex flex-column">
       <Header text="My Favorite Video Games" />
 
       <Button
-        className="button add__game"
+        className="btn btn-regular align-self-center m-3 p-3"
         text="Add a New Game!"
         onClick={() => navigate("/submission")}
       />
 
-      <div className="gamelist">
+      <div className="row flex-row align-self-center">
         {games.length >= 1
           ? games.map((game) => (
-              <div className="game" key={game.id} data-game-id={game.id}>
+              <div className="mt-3 col" key={game.id} data-game-id={game.id}>
                 <Card
                   title={game.title}
                   developer={game.developer}
                   year={game.release_year}
                   genre={game.genre}
                   imageUrl={game.image_url}
-                />
-                <Button
-                  className="delete__button button"
-                  text="Delete"
-                  onClick={handleDeletion}
-                />
-                <Button
-                  className="edit__button button"
-                  text="Edit"
-                  onClick={() => navigate(`/${game.id}/edit`)}
                 />
               </div>
             ))

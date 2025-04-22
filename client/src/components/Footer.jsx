@@ -1,10 +1,9 @@
 import React from "react";
-import "../styles/Footer.css";
 
 function Footer() {
   return (
-    <footer className="footer">
-      <p>© 2023 FVGL</p>
+    <footer className="row fixed-bottom">
+      <p className="text-center">© 2023 - 2025 FVGL</p>
     </footer>
   );
 }

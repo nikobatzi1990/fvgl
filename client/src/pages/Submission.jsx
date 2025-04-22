@@ -63,10 +63,10 @@ function Submission() {
   };
 
   return (
-    <div className="container d-flex flex-column">
+    <div className="container-fluid d-flex flex-column">
       <Header text="New Game" />
 
-      <div className="row col-4 my-4 align-self-center">
+      <div className="row col-4 my-5 align-self-center">
         <form
           className="d-flex flex-column align-self-center gap-2"
           encType="multipart/form-data"

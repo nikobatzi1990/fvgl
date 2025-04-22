@@ -11867,12 +11867,6 @@ body {
   border-color: #ECEBF2;
 }
 
-.btn-regular:active {
-  background-color: #ECEBF2;
-  color: #25291C;
-  border-color: #ECEBF2;
-}
-
 .card {
   width: 20rem;
   background-color: #25291C;
@@ -11899,6 +11893,11 @@ header {
 
 footer {
   font-weight: 300;
+  font-style: normal;
+}
+
+label {
+  font-weight: 500;
   font-style: normal;
 }
 

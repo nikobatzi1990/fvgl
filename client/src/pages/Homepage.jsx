@@ -25,7 +25,7 @@ function Homepage() {
   }, [fetchGameList]);
 
   return (
-    <div className="container d-flex flex-column">
+    <div className="container-fluid d-flex flex-column">
       <Header text="My Favorite Video Games" />
 
       <Button
@@ -34,10 +34,10 @@ function Homepage() {
         onClick={() => navigate("/submission")}
       />
 
-      <div className="row flex-row">
+      <div className="row flex-row align-self-center">
         {games.length >= 1
           ? games.map((game) => (
-              <div className="m-5 col" key={game.id} data-game-id={game.id}>
+              <div className="mt-3 col" key={game.id} data-game-id={game.id}>
                 <Card
                   title={game.title}
                   developer={game.developer}

@@ -22,12 +22,6 @@ body {
    border-color: $ghost-white;
 }
 
-.btn-regular:active {
-    background-color: $ghost-white;
-    color: $black-olive;
-    border-color: $ghost-white;
- }
-
 .card {
     width: 20rem;
     background-color: $black-olive;
@@ -54,5 +48,10 @@ header {
 
 footer {
     font-weight: 300;
+    font-style: normal;
+}
+
+label {
+    font-weight: 500;
     font-style: normal;
 }

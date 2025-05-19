@@ -1,12 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 
-function DeleteButton() {
+function DeleteButton(props) {
+  const { refreshList } = props;
   const handleDeletion = async (e) => {
     e.preventDefault();
-    const data = e.target.parentElement.parentElement.dataset;
+    const { gameId } = e.target.closest("[data-game-id]").dataset;
     try {
-      await axios.delete(`/api/games/${data.gameId}/deletion/`);
+      await axios.delete(`/api/games/${gameId}/deletion/`);
+      if (refreshList) {
+        refreshList();
+      }
     } catch (err) {
       console.log("ERROR: ", err);
     }
@@ -19,9 +24,13 @@ function DeleteButton() {
       type="button"
       aria-labelledby="delete"
     >
-      <i className="bi bi-trash3" id="delete" />
+      <i className="bi bi-trash3" />
     </button>
   );
 }
+
+DeleteButton.propTypes = {
+  refreshList: PropTypes.func.isRequired,
+};
 
 export default DeleteButton;

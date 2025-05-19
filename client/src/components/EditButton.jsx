@@ -21,7 +21,7 @@ function EditButton() {
       type="button"
       aria-labelledby="edit"
     >
-      <i className="bi bi-pencil" id="edit" />
+      <i className="bi bi-pencil" />
     </button>
   );
 }

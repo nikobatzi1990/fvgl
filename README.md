@@ -1,7 +1,5 @@
 # My-Favorite-Video-Games-List
 
-UPDATE 04/16/25: I have just finished migrating this project to Vite from the depreciated CRA. I am currently working on adding Bootstrap styles to improve the overall look of the application.
-
 This is a project I created as part of the Code Chrysalis curriculum. For Polyglottal week, 
 I independently studied a new language of my own choice; for this project I selected Python along with the Django framework. I made simple a RESTful API that saves my favorite video game titles into my local database. The included input fields are the title, release year, developer, genre, and image for each game. 
 

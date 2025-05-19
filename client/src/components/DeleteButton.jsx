@@ -4,9 +4,9 @@ import axios from "axios";
 function DeleteButton() {
   const handleDeletion = async (e) => {
     e.preventDefault();
-    const data = e.target.parentElement.parentElement.dataset;
+    const { gameId } = e.target.closest("[data-game-id]").dataset;
     try {
-      await axios.delete(`/api/games/${data.gameId}/deletion/`);
+      await axios.delete(`/api/games/${gameId}/deletion/`);
     } catch (err) {
       console.log("ERROR: ", err);
     }

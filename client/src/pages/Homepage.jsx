@@ -44,6 +44,7 @@ function Homepage() {
                   year={game.release_year}
                   genre={game.genre}
                   imageUrl={game.image_url}
+                  refreshList={fetchGameList}
                 />
               </div>
             ))

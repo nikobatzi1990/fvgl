@@ -4,7 +4,7 @@ import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
 
 function Card(props) {
-  const { title, developer, year, genre, imageUrl } = props;
+  const { title, developer, year, genre, imageUrl, refreshList } = props;
   return (
     <div className="card mb-5">
       {imageUrl ? (
@@ -26,7 +26,7 @@ function Card(props) {
           role="group"
           aria-label="delete and edit buttons"
         >
-          <DeleteButton />
+          <DeleteButton refreshList={refreshList} />
           <EditButton />
         </div>
       </div>
@@ -40,6 +40,7 @@ Card.propTypes = {
   year: PropTypes.number.isRequired,
   genre: PropTypes.string,
   imageUrl: PropTypes.string,
+  refreshList: PropTypes.func.isRequired,
 };
 
 Card.defaultProps = {

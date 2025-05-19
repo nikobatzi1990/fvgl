@@ -1,57 +1,57 @@
 @use "../node_modules/bootstrap/scss/bootstrap";
-$palatinate: #4C1E4F;
-$ghost-white: #ECEBF2;
-$teal: #087E8B;
-$carrot-orange: #F39237;
-$black-olive: #25291C;
+$palatinate: #4c1e4f;
+$ghost-white: #ecebf2;
+$teal: #087e8b;
+$carrot-orange: #f39237;
+$black-olive: #25291c;
 
 body {
-    width: 100vw;
-    background-color: $ghost-white;
+  width: 100vw;
+  background-color: $ghost-white;
 }
 
 .btn-regular {
-   background-color: $black-olive;
-   color: $ghost-white;
-   border-color: $black-olive;
+  background-color: $black-olive;
+  color: $ghost-white;
+  border-color: $black-olive;
 }
 
 .btn-regular:hover {
-   background-color: $ghost-white;
-   color: $black-olive;
-   border-color: $ghost-white;
+  background-color: $ghost-white;
+  color: $black-olive;
+  border-color: $ghost-white;
 }
 
 .card {
-    width: 20rem;
-    background-color: $black-olive;
-    border-color: $black-olive;
-    color: $black-olive;
+  width: 20rem;
+  background-color: $black-olive;
+  border-color: $black-olive;
+  color: $black-olive;
 }
 
 .card-title,
 .card-body {
-    color: white;
+  color: white;
 }
 
 * {
-    font-family: "Quicksand", sans-serif;
-    font-optical-sizing: auto;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
 }
 
 header {
-    font-weight: 700;
-    font-style: normal;
-    background-color: $palatinate;
-    color: white;
+  font-weight: 700;
+  font-style: normal;
+  background-color: $palatinate;
+  color: white;
 }
 
 footer {
-    font-weight: 300;
-    font-style: normal;
+  font-weight: 300;
+  font-style: normal;
 }
 
 label {
-    font-weight: 500;
-    font-style: normal;
+  font-weight: 500;
+  font-style: normal;
 }

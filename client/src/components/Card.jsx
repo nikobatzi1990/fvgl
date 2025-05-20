@@ -8,7 +8,15 @@ function Card(props) {
   return (
     <div className="card mb-5">
       {imageUrl ? (
-        <img src={imageUrl} alt="video game" className="card-img-top" />
+        <img
+          src={imageUrl}
+          alt="video game"
+          className="card-img-top"
+          // below styles were not applied when written in style.css
+          // putting them here for now
+          style={{ objectFit: "cover" }}
+          height="320px"
+        />
       ) : (
         <img
           src="https://res.cloudinary.com/dp2pjsbnz/image/upload/v1745035806/27002_ss0dyb.jpg"

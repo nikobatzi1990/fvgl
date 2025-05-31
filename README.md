@@ -80,7 +80,18 @@ Be sure to check that you are working in the virtual enviroment before moving on
 ```
 - Create a new .gitignore file in the client repository and add "node_modules" to it.
 
-#### 7. Run server
+#### 7. Add Cloudinary Config
+- In order for the image upload field to work properly, you will need to sign up for a free account with [Cloudinary](https://cloudinary.com/) and add the following info to your .env file:
+
+  - CLOUDINARY_CLOUD_NAME=
+
+  - CLOUDINARY_API_KEY=
+
+  - CLOUDINARY_API_SECRET=
+
+  - CLOUDINARY_URL=
+
+#### 8. Run server
 - Open two terminals and run the backend server with the following command in your terminal:
 ```bash
   python manage.py runserver

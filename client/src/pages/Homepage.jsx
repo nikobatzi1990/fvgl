@@ -39,6 +39,7 @@ function Homepage() {
           ? games.map((game) => (
               <div className="mt-3 col" key={game.id} data-game-id={game.id}>
                 <Card
+                  id={game.id}
                   title={game.title}
                   developer={game.developer}
                   year={game.release_year}

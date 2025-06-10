@@ -4,7 +4,7 @@ import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
 
 function Card(props) {
-  const { title, developer, year, genre, imageUrl, refreshList } = props;
+  const { id, title, developer, year, genre, imageUrl, refreshList } = props;
   return (
     <div className="card mb-5">
       {imageUrl ? (
@@ -25,7 +25,11 @@ function Card(props) {
         />
       )}
       <div className="card-body">
-        <h5 className="card-title">{title}</h5>
+        <h5 className="card-title">
+          <a href={`/${id}`} className="text-decoration-none">
+            {title}
+          </a>
+        </h5>
         <p className="card-text">{developer}</p>
         <p className="card-text">{year}</p>
         <p className="card-text">{genre}</p>
@@ -43,6 +47,7 @@ function Card(props) {
 }
 
 Card.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   developer: PropTypes.string,
   year: PropTypes.number.isRequired,

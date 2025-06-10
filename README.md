@@ -1,9 +1,9 @@
 # My-Favorite-Video-Games-List
 
 This is a project I created as part of the Code Chrysalis curriculum. For Polyglottal week, 
-I independently studied a new language of my own choice; for this project I selected Python along with the Django framework. I made simple a RESTful API that saves my favorite video game titles into my local database. The included input fields are the title, release year, developer, genre, and image for each game. 
+I independently studied a new language of my own choice; for this project I selected Python along with Django REST framework. I made simple a RESTful API that saves my favorite video game's data into my local database. The included input fields are the title, release year, developer, genre, user's comments, and image for each game. 
 
-In the future, I would like to add an individual page for each game and make certain data values into clickable tags that function as query parameters. I am also considering adding a comment field where a user could discuss what aspects they enjoyed about the game.
+In the future, I would like to make certain data values into clickable tags that function as query parameters.
 
 ## Getting Started
 
@@ -68,8 +68,9 @@ Be sure to check that you are working in the virtual enviroment before moving on
 - Create a new file called .gitignore and make sure to add .env to it; any filename added to .gitignore will prevent it from being added to your remote repository. This is important to prevent your PostgreSQL user credentials from being shared!
 
 #### 5. Run migrations
-- Run the following command to add tables to your database:
+- Run the following commands to add tables to your database:
 ```bash
+  python manage.py makemigrations
   python manage.py migrate
 ```
 

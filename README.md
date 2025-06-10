@@ -68,9 +68,8 @@ Be sure to check that you are working in the virtual enviroment before moving on
 - Create a new file called .gitignore and make sure to add .env to it; any filename added to .gitignore will prevent it from being added to your remote repository. This is important to prevent your PostgreSQL user credentials from being shared!
 
 #### 5. Run migrations
-- Run the following commands to add tables to your database:
+- Run the following command to add tables to your database:
 ```bash
-  python manage.py makemigrations
   python manage.py migrate
 ```
 

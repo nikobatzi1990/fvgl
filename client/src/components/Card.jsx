@@ -2,28 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
+import Image from "./Image";
 
 function Card(props) {
   const { id, title, developer, year, genre, imageUrl, refreshList } = props;
   return (
     <div className="card mb-5">
-      {imageUrl ? (
-        <img
-          src={imageUrl}
-          alt="video game"
-          className="card-img-top"
-          // below styles were not applied when written in style.css
-          // putting them here for now
-          style={{ objectFit: "cover" }}
-          height="320px"
-        />
-      ) : (
-        <img
-          src="https://res.cloudinary.com/dp2pjsbnz/image/upload/v1745035806/27002_ss0dyb.jpg"
-          alt="default"
-          className="card-img-top"
-        />
-      )}
+      <Image imageUrl={imageUrl} />
       <div className="card-body">
         <h5 className="card-title">
           <a href={`/${id}`} className="text-decoration-none">

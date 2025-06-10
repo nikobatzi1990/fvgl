@@ -22,7 +22,6 @@ function ViewGame() {
 
   useEffect(() => {
     fetchGame();
-    console.log("Fetching game with ID:", game);
   }, [fetchGame]);
 
   return (

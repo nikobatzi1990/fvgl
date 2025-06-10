@@ -4,6 +4,7 @@ import axios from "axios";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
+import Image from "../components/Image";
 
 function ViewGame() {
   const navigate = useNavigate();
@@ -21,12 +22,20 @@ function ViewGame() {
 
   useEffect(() => {
     fetchGame();
-    console.log("🕹️", game);
+    console.log("Fetching game with ID:", game);
   }, [fetchGame]);
 
   return (
-    <div>
+    <div className="container-fluid">
       <Header text={game.title} />
+      <div className=" p-5 d-flex gap-5">
+        <Image imageUrl={game.image_url} />
+        <div className="d-flex flex-column">
+          <p>{game.developer}</p>
+          <p>{game.release_year}</p>
+          <p>{game.genre}</p>
+        </div>
+      </div>
       <Button
         className="btn btn-regular align-self-start"
         onClick={() => navigate("/")}

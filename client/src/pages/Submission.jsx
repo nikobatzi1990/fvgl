@@ -13,7 +13,7 @@ function Submission() {
   const [year, setYear] = useState("");
   const [developer, setDeveloper] = useState("");
   const [genre, setGenre] = useState("");
-  const [image, setImage] = useState({});
+  const [image, setImage] = useState(null);
 
   const handleTitleInput = (e) => {
     setTitle(e.target.value);

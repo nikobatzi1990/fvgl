@@ -28,7 +28,11 @@ function Image(props) {
 }
 
 Image.propTypes = {
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
+};
+
+Image.defaultProps = {
+  imageUrl: "",
 };
 
 export default Image;

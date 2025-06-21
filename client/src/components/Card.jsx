@@ -32,7 +32,7 @@ function Card(props) {
 }
 
 Card.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   developer: PropTypes.string,
   year: PropTypes.number.isRequired,

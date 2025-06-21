@@ -34,10 +34,14 @@ function Homepage() {
         onClick={() => navigate("/submission")}
       />
 
-      <div className="row flex-row align-self-center">
+      <div className="row flex-row">
         {games.length >= 1
           ? games.map((game) => (
-              <div className="mt-3 col" key={game.id} data-game-id={game.id}>
+              <div
+                className="mt-3 col d-flex justify-content-center"
+                key={game.id}
+                data-game-id={game.id}
+              >
                 <Card
                   id={game.id}
                   title={game.title}

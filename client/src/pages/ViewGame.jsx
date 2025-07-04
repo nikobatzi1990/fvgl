@@ -30,10 +30,16 @@ function ViewGame() {
       <div className=" p-5 d-flex gap-5">
         <Image imageUrl={game.image_url} />
         <div className="d-flex flex-column">
-          <p>{game.developer}</p>
-          <p>{game.release_year}</p>
-          <p>{game.genre}</p>
-          <p>Comments: {game.comment}</p>
+          <div className="mt-3">
+            <h5 className="h5">Game Info:</h5>
+            <p>{game.developer}</p>
+            <p>{game.release_year}</p>
+            <p>{game.genre}</p>
+          </div>
+          <div className="mt-3">
+            <h5 className="h5">Comments:</h5>
+            <p>{game.comment}</p>
+          </div>
         </div>
       </div>
       <Button

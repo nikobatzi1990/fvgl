@@ -33,6 +33,7 @@ function ViewGame() {
           <p>{game.developer}</p>
           <p>{game.release_year}</p>
           <p>{game.genre}</p>
+          <p>Comments: {game.comment}</p>
         </div>
       </div>
       <Button

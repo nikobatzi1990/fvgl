@@ -41,6 +41,7 @@ def editGame(request, pk):
       game.release_year = request.data.get('release_year', game.release_year)
       game.developer = request.data.get('developer', game.developer)
       game.genre = request.data.get('genre', game.genre)
+      game.comment = request.data.get('comment', game.comment)
       if 'image_url' in request.FILES:
          game.image_url = request.FILES['image_url']
       game.save()

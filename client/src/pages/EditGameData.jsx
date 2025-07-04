@@ -70,6 +70,7 @@ function EditGameData() {
     editedGame.append("release_year", year);
     editedGame.append("developer", developer);
     editedGame.append("genre", genre);
+    editedGame.append("comment", comment);
     if (image && image.name) {
       editedGame.append("image_url", image);
     }

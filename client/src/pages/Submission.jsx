@@ -14,6 +14,7 @@ function Submission() {
   const [developer, setDeveloper] = useState("");
   const [genre, setGenre] = useState("");
   const [image, setImage] = useState(null);
+  const [comment, setComment] = useState("");
 
   const handleTitleInput = (e) => {
     setTitle(e.target.value);
@@ -35,6 +36,10 @@ function Submission() {
     setImage(e.target.files[0]);
   };
 
+  const handleCommentInput = (e) => {
+    setComment(e.target.value);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -43,6 +48,7 @@ function Submission() {
     newGame.append("release_year", year);
     newGame.append("developer", developer);
     newGame.append("genre", genre);
+    newGame.append("comment", comment);
     if (image && image.name) {
       newGame.append("image_url", image);
     }
@@ -121,6 +127,15 @@ function Submission() {
               accept="image/png, image/jpeg"
               className="form-control"
               onChange={handleImageInput}
+            />
+          </label>
+
+          <label htmlFor="game__comment" className="form-label">
+            Comment:
+            <textarea
+              id="game__comment"
+              className="form-control"
+              onChange={handleCommentInput}
             />
           </label>
 

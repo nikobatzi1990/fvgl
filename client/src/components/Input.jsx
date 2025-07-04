@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Input(props) {
-  const { className, id, placeholder, onChange, type } = props;
+  const { className, id, value, onChange, type } = props;
 
   return (
     <div>
       <input
         id={id}
         className={className}
-        placeholder={placeholder}
+        value={value}
         onChange={onChange}
         type={type}
       />
@@ -20,7 +20,7 @@ function Input(props) {
 Input.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
-  placeholder: PropTypes.string || PropTypes.number,
+  value: PropTypes.string || PropTypes.number,
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string,
 };
@@ -28,7 +28,7 @@ Input.propTypes = {
 Input.defaultProps = {
   id: "",
   className: "",
-  placeholder: "",
+  value: "",
   type: "text",
 };
 

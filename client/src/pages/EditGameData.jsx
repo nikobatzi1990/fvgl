@@ -16,6 +16,7 @@ function EditGameData() {
   const [developer, setDeveloper] = useState("");
   const [genre, setGenre] = useState("");
   const [image, setImage] = useState({});
+  const [comment, setComment] = useState("");
 
   const handleGameData = useCallback(async () => {
     const gameData = await axios
@@ -34,6 +35,7 @@ function EditGameData() {
     setYear(game.release_year);
     setDeveloper(game.developer);
     setGenre(game.genre);
+    setComment(game.comment);
   }, [game]);
 
   const handleTitleInput = (e) => {
@@ -54,6 +56,10 @@ function EditGameData() {
 
   const handleImageInput = (e) => {
     setImage(e.target.files[0]);
+  };
+
+  const handleCommentInput = (e) => {
+    setComment(e.target.value);
   };
 
   const handleSubmit = async (e) => {
@@ -96,7 +102,7 @@ function EditGameData() {
               id="game__title"
               type="text"
               className="form-control"
-              placeholder={title}
+              value={title}
               onChange={handleTitleInput}
             />
           </label>
@@ -107,7 +113,7 @@ function EditGameData() {
               id="game__release"
               type="text"
               className="form-control"
-              placeholder={year}
+              value={year}
               onChange={handleYearInput}
             />
           </label>
@@ -118,7 +124,7 @@ function EditGameData() {
               id="game__developer"
               type="text"
               className="form-control"
-              placeholder={developer}
+              value={developer}
               onChange={handleDeveloperInput}
             />
           </label>
@@ -129,7 +135,7 @@ function EditGameData() {
               id="game__genre"
               type="text"
               className="form-control"
-              placeholder={genre}
+              value={genre}
               onChange={handleGenreInput}
             />
           </label>
@@ -142,6 +148,16 @@ function EditGameData() {
               className="form-control"
               accept="image/png, image/jpeg"
               onChange={handleImageInput}
+            />
+          </label>
+
+          <label htmlFor="game__comment" className="form-label">
+            Comment:
+            <textarea
+              id="game__comment"
+              className="form-control"
+              value={comment}
+              onChange={handleCommentInput}
             />
           </label>
 

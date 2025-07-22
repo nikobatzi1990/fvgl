@@ -11,7 +11,10 @@ function Card(props) {
       <Image imageUrl={imageUrl} />
       <div className="card-body">
         <h5 className="card-title">
-          <a href={`/${id}`} className="text-decoration-none">
+          <a
+            href={`/${id}`}
+            className="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+          >
             {title}
           </a>
         </h5>

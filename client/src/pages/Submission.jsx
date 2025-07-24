@@ -16,30 +16,6 @@ function Submission() {
   const [image, setImage] = useState(null);
   const [comment, setComment] = useState("");
 
-  const handleTitleInput = (e) => {
-    setTitle(e.target.value);
-  };
-
-  const handleYearInput = (e) => {
-    setYear(e.target.value);
-  };
-
-  const handleDeveloperInput = (e) => {
-    setDeveloper(e.target.value);
-  };
-
-  const handleGenreInput = (e) => {
-    setGenre(e.target.value);
-  };
-
-  const handleImageInput = (e) => {
-    setImage(e.target.files[0]);
-  };
-
-  const handleCommentInput = (e) => {
-    setComment(e.target.value);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -82,7 +58,7 @@ function Submission() {
               type="text"
               className="form-control"
               placeholder="Enter game title"
-              onChange={handleTitleInput}
+              onChange={(e) => setTitle(e.target.value)}
             />
           </label>
 
@@ -93,7 +69,7 @@ function Submission() {
               type="text"
               className="form-control"
               placeholder="Enter release year"
-              onChange={handleYearInput}
+              onChange={(e) => setYear(e.target.value)}
             />
           </label>
 
@@ -104,7 +80,7 @@ function Submission() {
               type="text"
               className="form-control"
               placeholder="Enter developer name"
-              onChange={handleDeveloperInput}
+              onChange={(e) => setDeveloper(e.target.value)}
             />
           </label>
 
@@ -115,7 +91,7 @@ function Submission() {
               type="text"
               className="form-control"
               placeholder="Enter game genre"
-              onChange={handleGenreInput}
+              onChange={(e) => setGenre(e.target.value)}
             />
           </label>
 
@@ -126,7 +102,7 @@ function Submission() {
               type="file"
               accept="image/png, image/jpeg"
               className="form-control"
-              onChange={handleImageInput}
+              onChange={(e) => setImage(e.target.files[0])}
             />
           </label>
 
@@ -135,7 +111,7 @@ function Submission() {
             <textarea
               id="game__comment"
               className="form-control"
-              onChange={handleCommentInput}
+              onChange={(e) => setComment(e.target.value)}
             />
           </label>
 

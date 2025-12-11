@@ -19,10 +19,10 @@ function Submission() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-  const genreList = genre
-    .split(",")
-    .map((g) => g.trim())
-    .filter((g) => g.length > 0);
+    const genreList = genre
+      .split(",")
+      .map((g) => g.trim())
+      .filter((g) => g.length > 0);
 
     const newGame = new FormData();
     newGame.append("title", title);
@@ -30,7 +30,7 @@ function Submission() {
     newGame.append("developer", developer);
     newGame.append("comment", comment);
     genreList.forEach((g) => newGame.append("genre", g));
-    
+
     if (image && image.name) {
       newGame.append("image_url", image);
     }

@@ -19,11 +19,16 @@ function Submission() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // const genreList = genre
+    //   .split(",")
+    //   .map((g) => g.trim())
+    //   .filter((g) => g.length > 0);
+
     const newGame = new FormData();
     newGame.append("title", title);
     newGame.append("release_year", year);
     newGame.append("developer", developer);
-    newGame.append("genre", genre);
+    // newGame.append("genre", JSON.stringify(genreList));
     newGame.append("comment", comment);
     if (image && image.name) {
       newGame.append("image_url", image);
@@ -59,6 +64,7 @@ function Submission() {
               className="form-control"
               placeholder="Enter game title"
               onChange={(e) => setTitle(e.target.value)}
+              value={title}
             />
           </label>
 
@@ -70,6 +76,7 @@ function Submission() {
               className="form-control"
               placeholder="Enter release year"
               onChange={(e) => setYear(e.target.value)}
+              value={year}
             />
           </label>
 
@@ -81,6 +88,7 @@ function Submission() {
               className="form-control"
               placeholder="Enter developer name"
               onChange={(e) => setDeveloper(e.target.value)}
+              value={developer}
             />
           </label>
 
@@ -92,6 +100,7 @@ function Submission() {
               className="form-control"
               placeholder="Enter game genre"
               onChange={(e) => setGenre(e.target.value)}
+              value={genre}
             />
           </label>
 
@@ -103,6 +112,7 @@ function Submission() {
               accept="image/png, image/jpeg"
               className="form-control"
               onChange={(e) => setImage(e.target.files[0])}
+              value={image}
             />
           </label>
 
@@ -112,6 +122,7 @@ function Submission() {
               id="game__comment"
               className="form-control"
               onChange={(e) => setComment(e.target.value)}
+              value={comment}
             />
           </label>
 

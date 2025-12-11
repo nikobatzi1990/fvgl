@@ -19,12 +19,18 @@ function Submission() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const genreList = genre
+      .split(",")
+      .map((g) => g.trim())
+      .filter((g) => g.length > 0);
+
     const newGame = new FormData();
     newGame.append("title", title);
     newGame.append("release_year", year);
     newGame.append("developer", developer);
-    newGame.append("genre", genre);
     newGame.append("comment", comment);
+    genreList.forEach((g) => newGame.append("genre", g));
+
     if (image && image.name) {
       newGame.append("image_url", image);
     }

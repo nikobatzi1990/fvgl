@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/Header";
@@ -9,81 +9,61 @@ import SubmitButton from "../components/SubmitButton";
 
 function EditGameData() {
   const navigate = useNavigate();
-  const gameId = useParams();
-  const [game, setGame] = useState({});
+  const { game: gameId } = useParams();
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [developer, setDeveloper] = useState("");
   const [genre, setGenre] = useState("");
-  const [image, setImage] = useState({});
+  const [image, setImage] = useState(null);
   const [comment, setComment] = useState("");
 
-  const handleGameData = useCallback(async () => {
-    const gameData = await axios
-      .get(`/api/games/game/${gameId.game}/`)
-      .then((result) => result.data)
-      .catch((err) => console.log("ERROR: ", err));
-    setGame(gameData);
-  }, []);
-
   useEffect(() => {
-    handleGameData();
-  }, [handleGameData]);
+    const fetchGame = async () => {
+      try {
+        const res = await axios.get(`/api/games/game/${gameId}/`);
+        const game = res.data;
 
-  useEffect(() => {
-    setTitle(game.title);
-    setYear(game.release_year);
-    setDeveloper(game.developer);
-    setGenre(game.genre);
-    setComment(game.comment);
-  }, [game]);
+        setTitle(game.title || "");
+        setYear(game.release_year || "");
+        setDeveloper(game.developer || "");
+        setComment(game.comment || "");
+        setGenre(game.genre ? game.genre.join(", ") : "");
+      } catch (err) {
+        console.log("ERROR fetching game:", err);
+      }
+    };
 
-  const handleTitleInput = (e) => {
-    setTitle(e.target.value);
-  };
-
-  const handleYearInput = (e) => {
-    setYear(e.target.value);
-  };
-
-  const handleDeveloperInput = (e) => {
-    setDeveloper(e.target.value);
-  };
-
-  const handleGenreInput = (e) => {
-    setGenre(e.target.value);
-  };
-
-  const handleImageInput = (e) => {
-    setImage(e.target.files[0]);
-  };
-
-  const handleCommentInput = (e) => {
-    setComment(e.target.value);
-  };
+    fetchGame();
+  }, [gameId]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const genreList = genre
+      .split(",")
+      .map((g) => g.trim())
+      .filter((g) => g.length > 0);
 
     const editedGame = new FormData();
     editedGame.append("title", title);
     editedGame.append("release_year", year);
     editedGame.append("developer", developer);
-    editedGame.append("genre", genre);
     editedGame.append("comment", comment);
+    genreList.forEach((g) => editedGame.append("genre", g));
     if (image && image.name) {
       editedGame.append("image_url", image);
     }
+
     try {
-      await axios.patch(`/api/games/${gameId.game}/edit/`, editedGame, {
+      await axios.patch(`/api/games/${gameId}/edit/`, editedGame, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
+      navigate("/");
     } catch (err) {
-      console.log("ERROR: ", err);
+      console.log("ERROR submitting edit:", err);
     }
-    navigate("/");
   };
 
   return (
@@ -104,7 +84,7 @@ function EditGameData() {
               type="text"
               className="form-control"
               value={title}
-              onChange={handleTitleInput}
+              onChange={(e) => setTitle(e.target.value)}
             />
           </label>
 
@@ -115,7 +95,7 @@ function EditGameData() {
               type="text"
               className="form-control"
               value={year}
-              onChange={handleYearInput}
+              onChange={(e) => setYear(e.target.value)}
             />
           </label>
 
@@ -126,7 +106,7 @@ function EditGameData() {
               type="text"
               className="form-control"
               value={developer}
-              onChange={handleDeveloperInput}
+              onChange={(e) => setDeveloper(e.target.value)}
             />
           </label>
 
@@ -137,7 +117,8 @@ function EditGameData() {
               type="text"
               className="form-control"
               value={genre}
-              onChange={handleGenreInput}
+              placeholder="Separate multiple genres with commas"
+              onChange={(e) => setGenre(e.target.value)}
             />
           </label>
 
@@ -148,7 +129,7 @@ function EditGameData() {
               type="file"
               className="form-control"
               accept="image/png, image/jpeg"
-              onChange={handleImageInput}
+              onChange={(e) => setImage(e.target.files[0])}
             />
           </label>
 
@@ -158,7 +139,7 @@ function EditGameData() {
               id="game__comment"
               className="form-control"
               value={comment}
-              onChange={handleCommentInput}
+              onChange={(e) => setComment(e.target.value)}
             />
           </label>
 

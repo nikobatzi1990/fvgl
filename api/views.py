@@ -35,25 +35,30 @@ def addGame(request):
 @api_view(['PATCH'])
 @parser_classes([MultiPartParser, FormParser])
 def editGame(request, pk):
-   try:
-      game = Game.objects.get(pk=pk)
-      game.title = request.data.get('title', game.title)
-      game.release_year = request.data.get('release_year', game.release_year)
-      game.developer = request.data.get('developer', game.developer)
-      game.genre = request.data.get('genre', game.genre)
-      game.comment = request.data.get('comment', game.comment)
-      if 'image_url' in request.FILES:
-         game.image_url = request.FILES['image_url']
-      game.save()
-      serializer = GameSerializer(game)
-      return Response(serializer.data, status=200)
+    try:
+        game = Game.objects.get(pk=pk)
 
-   except Game.DoesNotExist:
-      return Response({'error': 'Game not found'}, status=404)
+        game.title = request.data.get('title', game.title)
+        game.release_year = request.data.get('release_year', game.release_year)
+        game.developer = request.data.get('developer', game.developer)
+        game.comment = request.data.get('comment', game.comment)
 
-   except Exception as e:
-      print("Error:", str(e))
-      return Response({'error': str(e)}, status=500)
+        genres = request.data.getlist('genre')
+        if genres:
+            game.genre = genres
+
+        if 'image_url' in request.FILES:
+            game.image_url = request.FILES['image_url']
+
+        game.save()
+        serializer = GameSerializer(game)
+        return Response(serializer.data, status=200)
+
+    except Game.DoesNotExist:
+        return Response({'error': 'Game not found'}, status=404)
+    except Exception as e:
+        print("Error:", str(e))
+        return Response({'error': str(e)}, status=500)
 
 @api_view(['DELETE'])
 def deleteGame(request, pk): 

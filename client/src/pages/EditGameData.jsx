@@ -143,7 +143,7 @@ function EditGameData() {
             />
           </label>
 
-          <SubmitButton className="btn btn-regular" />
+          <SubmitButton className="btn btn-regular" text="Save Changes" />
         </form>
       </div>
 

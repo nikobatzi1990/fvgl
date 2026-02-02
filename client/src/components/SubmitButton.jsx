@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function SubmitButton({ className, text }) {
+function SubmitButton({ className = "", text = "Submit" }) {
   return (
     <button className={className} type="submit">
       {text}
@@ -12,11 +12,6 @@ function SubmitButton({ className, text }) {
 SubmitButton.propTypes = {
   className: PropTypes.string,
   text: PropTypes.string,
-};
-
-SubmitButton.defaultProps = {
-  className: "",
-  text: "Submit",
 };
 
 export default SubmitButton;

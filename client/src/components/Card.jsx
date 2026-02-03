@@ -5,7 +5,15 @@ import EditButton from "./EditButton";
 import Image from "./Image";
 
 function Card(props) {
-  const { id, title, developer, year, genre, imageUrl, refreshList } = props;
+  const {
+    id,
+    title,
+    developer = "",
+    year,
+    genre = "",
+    imageUrl = "",
+    refreshList,
+  } = props;
   return (
     <div className="card mb-5">
       <Image imageUrl={imageUrl} />
@@ -42,12 +50,6 @@ Card.propTypes = {
   genre: PropTypes.string,
   imageUrl: PropTypes.string,
   refreshList: PropTypes.func.isRequired,
-};
-
-Card.defaultProps = {
-  developer: "",
-  genre: "",
-  imageUrl: "",
 };
 
 export default Card;

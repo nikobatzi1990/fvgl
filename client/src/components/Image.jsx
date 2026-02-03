@@ -1,9 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Image(props) {
-  const { imageUrl } = props;
-
+function Image({ imageUrl = "" }) {
   return (
     <div>
       {imageUrl ? (
@@ -29,10 +27,6 @@ function Image(props) {
 
 Image.propTypes = {
   imageUrl: PropTypes.string,
-};
-
-Image.defaultProps = {
-  imageUrl: "",
 };
 
 export default Image;

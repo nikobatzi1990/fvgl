@@ -2,7 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Input(props) {
-  const { className, id, value, onChange, type } = props;
+  const {
+    className = "",
+    id = "",
+    value = "",
+    onChange,
+    type = "text",
+  } = props;
 
   return (
     <div>
@@ -23,13 +29,6 @@ Input.propTypes = {
   value: PropTypes.string || PropTypes.number,
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string,
-};
-
-Input.defaultProps = {
-  id: "",
-  className: "",
-  value: "",
-  type: "text",
 };
 
 export default Input;
